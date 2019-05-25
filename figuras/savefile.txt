@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+# coding=utf-8
+import csv
+import re
+import os
+import urllib.request
+from datetime import datetime
+import time
+import rospy
+from geometry_msgs.msg import Twist
+a = 0
+while os.path.exists("Data/driver_log_0%s.csv" % a):
+        a += 1
+log = open('Data/driver_log_0%s.csv' % a, 'w')
+url = "http://192.168.0.65/jpg/image.jpg"
+
+linearX = 0.0
+angularZ = 0.0
+
+def salvarArquivos(x, z):
+	
+    log = open('Data/driver_log_0%s.csv', 'a')
+    escrever = csv.writer(log)
+    j = 0 
+    i = 0
+    while os.path.exists("Data/IMG/imagem%s.jpg" % i):
+        i += 1
+    try:
+        urllib.request.urlretrieve(url, "Data/IMG/imagem%s.jpg" % i) 
+        nomeimagem = "IMG/imagem%s.jpg" % i
+        print("imagem %s baixada com sucesso!" % i)
+    except:
+        print('ocorreu um erro no download da imagem %s' % i)
+    try:
+        escrever.writerow((nomeimagem, x, z))
+        print("imagem %s salva no arquivo de Log com sucesso!" % i)
+    except:
+        print('ocorreu um erro para salvar a imagem %s' % i)
+    i += 1
+    j += 1 
+    print(os.getcwd())
+    log.close()
+    listener()
+
+def callback(data):
+    linear_x = data.linear.x
+    print('X: ', linear_x)
+    angular_z = data.angular.z
+    print('z: ', angular_z)
+    salvarArquivos(linear_x,angular_z)
+    
+    
+def listener():
+
+    rospy.init_node('NodeDeTeste', anonymous=True)
+    data = rospy.wait_for_message("drrobot_cmd_vel", Twist)
+    linear_x = data.linear.x
+    print('X: ', linear_x)
+    angular_z = data.angular.z
+    print('z: ', angular_z)
+    
+    salvarArquivos(linear_x,angular_z)
+    print("ele chegou até aqui 3")
+
+print("Iniciando...")
+listener()
+	
+

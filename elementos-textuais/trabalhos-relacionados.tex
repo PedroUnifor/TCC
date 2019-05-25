@@ -1,0 +1,49 @@
+\chapter{Trabalhos Relacionados}
+\label{cap:trabalhos-relacionados}
+\section{\textit{End-to-End Deep Learning for Self-Driving Cars}}
+\label{End-to-End_Deep_Learning_for_Self-Driving_Cars}
+
+Nesse projeto é utilizado Redes Neurais Convolucionais para fazer uma análise profunda das imagens capturadas pela câmera frontal do carro autônomo e gerar os comandos de direção para o veículo. Com esse sistema o computador aprende a pilotar o carro com apenas a análise do treinamento feito por humanos. Diferentemente de outros carros autônomos, o projeto da Nvidia não decompõe a imagem de forma explícita, como por exemplo, procurar o contorno da estrada na imagem. Ele trabalha a imagem como um todo, juntamente com os valores de angulação e aceleração. \cite{nvidiabojarski2016end}
+
+O projeto do jaguar é baseado no algoritmo da Nvidia, porém o computador não tem o mesmo poder de processamento do Jaguar e nem fica ligado diretamente nele, sendo necessário conectar à plataforma através de uma rede wireless. Esse tipo de conexão juntamente com o fraco poder computacional fazem com que o delay seja grande na análise e resposta da imagem do Jaguar.
+
+\section{\textit{Open Source Self-Driving Car}}
+\label{Open_Source_Self-Driving_Car}
+
+Esse projeto é um dos vários cursos pagos oferecidos pela Udacity que, com parceria de grandes empresas como Google, Amazon e Facebook, tem como intuito oferecer um conhecimento que está em alta demanda no mercado de trabalho. No caso do Projeto Open Source Self-Driving Car à Udacity oferece um curso no qual o aluno desenvolve o algoritmo de carro autônomo com redes neurais e pode treinar e testar o algoritmo no simulador desenvolvido pela empresa. \cite{self-drivingcar} 
+
+O projeto do Jaguar utiliza um algoritmo parecido com o do projeto do Self-Driving Car, porém ele foi testado em um ambiente real com um veículo real e apenas uma simples câmera ao invés de três, como é utilizado no Source Self-Driving Car. Isso tornou o cálculo da rede neural um pouco mais complexo, porém ainda sim ele conseguiu andar de forma autônoma.
+
+\section{\textit{AutoWare}}
+\label{AutoWare}
+
+O autoware é o primeiro software de código aberto para carros autônomos baseado em ROS. Ele fornece alguns recursos, mas não se limita à somente eles: localização obtida por mapas 3D e algoritmos SLAM em combinação com sensores GNSS e IMU, detecção utiliza câmeras e LiDARs com algoritmos de fusão de sensores e redes neurais profundas. Sua predição e planejamento são baseados em robótica probabilística e sistemas baseados em regras, no qual também é utilizado redes neurais profundas. A saída do Autoware para o veículo é uma junção de velocidade e angulo de direção. Esse é a parte do Controle do software, onde os algoritmos PID e MPC são frequentemente adotados. \cite{autoware}
+
+O algoritmo do presente trabalho se limita a trabalhar somente com os dados obtidos da câmera do Jaguar. Através disso é possível gerar os dados de velocidade e angulação da direção para a plataforma Jaguar. Para pistas mais simples não se mostrou necessidade de algo mais complexo.
+
+\section{\textit{Self Driving (Toy) Ferrari}}
+\label{Self_Driving_(Toy)_Ferrari}
+
+Esse projeto feito pelo Ryan Zotti tem como intuito fazer um carrinho de brinquedo com um raspberry Pi dirigir de forma autônoma utilizando um sensor de distância ultrassônico, uma câmera e um algoritmo de inteligência artificial. Para isso, é preciso primeiro treinar o algoritmo com os dados adquiridos do controle remoto, câmera e sensor de distância. Depois de treinado e criado os modelos é possível colocar o carrinho para andar de forma autônoma. \cite{selfdrivingcartoy}
+
+Esse projeto usa um algoritmo muito parecido com o do Jaguar, porém esse algoritmo trabalha fora do Jaguar, enquanto no projeto do Ryan o algoritmo trabalha dentro do microcontrolador, o que pode exigir um poder de processamento muito maior, porém um delay de resposta menor devido a ausência da rede wireless, se comparado ao projeto Jaguar.
+
+\section{NAVEGAÇÃO SEGURA DE UM CARRO AUTÔNOMO UTILIZANDO CAMPOS VETORIAIS E O MÉTODO DA JANELA DINÂMICA}
+\label{NAVEGAÇÃO_SEGURA}
+
+Esse trabalho apresenta uma proposta de um modelo de carro autônomo que utiliza planejamento de movimentos por meio de campos vetoriais de velocidade juntamente com o método da janela dinâmica para desviar de obstáculos. Para isso, foi utilizado o carro autônomo que está em desenvolvimento na Universidade Federal de Minas Gerais, o CADU, que utiliza uma câmera estéreo Bumblebee2 e dois computadores portáteis. Esse projeto foi capaz de circular por um campo vetorial elipsoidal com obstáculo de maneira satisfatória. \cite{marcatto2014desenvolvimento}
+
+Em relação ao Jaguar, os dois projetos têm o mesmo intuito: fazer um veículo autônomo. Porém, além de ser utilizado veículos diferentes, o algoritmo do CADU utiliza campos vetoriais e janela dinâmica enquanto o Jaguar utiliza rede neural convolucional para analisar à sua trajetória de navegação.
+
+\begin{comment}
+\Gls{ambiguidade}
+\Gls{braile}
+\Gls{coerencia}
+\Gls{dialetos}
+\Gls{elipse}
+\Gls{locucao-adjetiva}
+\Gls{modificadores}
+\Gls{paronimos}
+\Gls{sintese}
+\Gls{borboleta}
+\end{comment}
