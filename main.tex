@@ -29,9 +29,19 @@
 
 % Opcoes disponiveis
 
+%% Trabalho final de GRADUAÇÃO no qual a folha de aprovação será um arquivo PDF
+%\trabalhoacademico{tccgraduacaoPDF}
+
+%% Trabalho final de GRADUAÇÃO no qual a folha de aprovação será gerada pelo modelo UniforTEX
 \trabalhoacademico{tccgraduacao}
+
+%% Trabalho final de ESPECIALIZAÇÃO no qual a folha de aprovação será gerada pelo modelo UniforTEX
 %\trabalhoacademico{tccespecializacao}
+
+%% Trabalho final de MESTRADO no qual a folha de aprovação será gerada pelo modelo UniforTEX
 %\trabalhoacademico{dissertacao}
+
+%% Trabalho final de DOUTORADO no qual a folha de aprovação será gerada pelo modelo UniforTEX
 %\trabalhoacademico{tese}
 
 % Define se o trabalho eh uma qualificacao
@@ -60,7 +70,7 @@
 %%        Informação para TCC de Graduacao         %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\graduacaoem{Engenharia de Controle e Automação}
+\graduacaoem{Ciência da Computação}
 \habilitacao{bacharel} % Pode colocar tambem 'licenciada'
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -91,19 +101,19 @@
 %%  Informação relacionadas ao trabalho     %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\autor{Pedro Benevides Cavalcante}
-\titulo{Inteligência Artificial aplicada a plataforma robótica Jaguar}
+\autor{Bruno Lopes Alcantara Batista}
+\titulo{Modelo Canônico de Trabalho Acadêmico \\ da Universidade de Fortaleza com \abnTeX}
 \data{2017}
 \local{Fortaleza -- Ceará}
 
-% Exemplo: \dataaprovacao{01 de Janeiro de 2012}
+% Exemplo: \dataaprovacao{01 de Janeiro de 2017}
 \dataaprovacao{01 de Janeiro de 2017}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%     Informação sobre o Orientador       %%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\orientador{Afonso Henrique Fontes Neto Segundo}
+\orientador{Bruno Lopes Alcantara Batista}
 \orientadories{Universidade de Fortaleza - UNIFOR}
 \orientadorcentro{Centro de Ciências Tecnológicas - CCT}
 \orientadorfeminino{nao} % Coloque 'sim' se for do sexo feminino
@@ -130,7 +140,7 @@
 % \membrodabancadoisies{Universidade Estadual do Ceará - UECE}
 
 \membrodabancadois{Membro da Banca Dois}
-\membrodabancadoiscentro{Faculdade de Filosofia Dom Aureliano Matos – FAFIDAM}
+\membrodabancadoiscentro{Centro de Ciências e Tecnologia - CCT}
 \membrodabancadoisies{Universidade do Membro da Banca Dois - SIGLA}
 
 \membrodabancatres{Membro da Banca Três}
@@ -142,17 +152,16 @@
 \membrodabancaquatroies{Universidade do Membro da Banca Quatro - SIGLA}
 
 \membrodabancacinco{Membro da Banca Cinco}
-\membrodabancacincocentro{Teste}
+\membrodabancacincocentro{Centro de Ciências e Tecnologia - CCT}
 \membrodabancacincoies{Universidade do Membro da Banca Cinco - SIGLA}
 
 \membrodabancaseis{Membro da Banca Seis}
-\membrodabancaseiscentro{}
+\membrodabancaseiscentro{Centro de Ciências e Tecnologia - CCT}
 \membrodabancaseisies{Universidade do Membro da Banca Seis - SIGLA}
 
-
 \usepackage{float}
-\usepackage[acronym]{glossaries}
-\usepackage{pdfpages}
+\usepackage[acronym]{glossery}
+\printglossary[type=\acronymtype]
 \printglossary
 
 \begin{document}
@@ -189,8 +198,8 @@
 	\imprimirabstract{elementos-pre-textuais/abstract}
 	\imprimirlistadeilustracoes
 	\imprimirlistadetabelas
-	%\imprimirlistadequadros
-	%\imprimirlistadealgoritmos
+	\imprimirlistadequadros
+	\imprimirlistadealgoritmos
 	\imprimirlistadecodigosfonte
 	\imprimirlistadeabreviaturasesiglas
 	\imprimirlistadesimbolos{elementos-pre-textuais/lista-de-simbolos}
@@ -205,7 +214,7 @@
 	\input{elementos-textuais/resultados}
 	\input{elementos-textuais/conclusao}
 
-%Elementos pós-textuais
+	%Elementos pós-textuais
 	\bibliography{elementos-pos-textuais/referencias}
 	\imprimirglossario
 	%\imprimirapendices
