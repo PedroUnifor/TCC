@@ -1,5 +1,4 @@
 import cv2, os
-
 import numpy as np
 import matplotlib.image as mpimg
 
@@ -39,24 +38,21 @@ def preprocess(image):
     """
     Combine all preprocess functions into one
     """
-
     image = crop(image)
-
     #cv2.imshow('image',image)
     #cv2.waitKey(200)
     #cv2.destroyAllWindows()
 
     image = resize(image)
-
     #cv2.imshow('image',image)
     #cv2.waitKey(100)
     #cv2.destroyAllWindows()
 
     image = rgb2yuv(image)
-
     #cv2.imshow('image',image)
     #cv2.waitKey(200)
     #cv2.destroyAllWindows() 
+
     return image
 
 

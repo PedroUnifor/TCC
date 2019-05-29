@@ -15,7 +15,7 @@ Essas características tornam o Jaguar uma excelente plataforma para o uso de in
 	\UNIFORfig{}{
 		\fbox{\includegraphics[width=15cm]{figuras/Jaguar.png}}
 	}{
-		\Fonte{\cite{conv2}}
+		\Fonte{Elaborado pelo autor}
 	}	
 \end{figure}
 
@@ -71,6 +71,28 @@ Aprendizagem Profunda, em português, é uma forma de aprendizagem de máquina q
 
 \section{Redes Neurais}
 \label{redes neurais}
+
+Rede Neural (ANN) é um modelo computacional inspirado pela própria organização biológica do processamento de informação do cérebro humano. São algoritmos que aprendem a modelar uma relação entre a entrada e saída dos dados. esses algoritmos são comumente utilizados para reconhecimento de padrões no campo da medicina, ciências puras, negócios, mineração de dados \cite{redeneuralnvidia}.
+
+À unidade básica da ANN é chamada de nó, unidade ou neurônio, seu nome mais popular. Por sua vez, ele recebe à entrada de outros nós ou uma fonte externa para gerar uma saída. Dentro do nó há uma função(f) que determina o valor de sua saída e um peso(w) que é calculado de acordo com sua importância em relação aos outros nós. Uma ideia ilustrativa é mostrada na figura \ref{neuronio} \cite{conv2,redeneuralnvidia}.
+
+\begin{figure}[H]
+	\centering
+	\Caption{\label{neuronio}Neurônio}
+	\UNIFORfig{}{
+		\fbox{\includegraphics[width=15cm]{figuras/neuralnetwork.png}}
+	}{
+		\Fonte{\cite{conv2}}
+	}	
+\end{figure}
+
+Nessa rede o neurônio recebe X1 e X2 nas suas entradas e à atribuição dos pesos w1 e w2, respectivamente. Na entrada 1, há uma Bias chamado b. Sua saída Y é calculada pela função f, conhecida como função de ativação, que tem por finalidade introduzir a saída de um neurônio a não-linearidade, já que os dados do mundo real não lineares. Cada neurônio possui uma função de ativação com valores únicos \cite{conv2}.
+
+Na Rede neural, cada neurônio de uma camada é ligado à um neurônio da camada seguinte. No processo de aprendizagem, o \textit{dataset} de entrada vai passando por todas as camadas mudando as variáveis (os pesos e padrões) das funções de entrada de forma que minimize ao máximo a diferença entre os valores desejados e as previsões da rede neural \cite{redeneuralnvidia}.
+
+O primeiro tipo de rede neural desenvolvido foi a \textit{Feedforward}, que é também o mais simples. Essa ANN possui três tipos de camadas: camada de entrada, camada escondida e camada de saída. Ela funciona basicamente com um caminho único para o \textit{dataset} onde ele entra pela camada de entrada e vai percorrendo todas as camadas até a camada de saída, não existindo assim nenhum ciclo de retorno ou \textit{loop} na rede \cite{conv2, redeneuralnvidia}.
+
+Redes Neurais \textit{Feedforward} são dividas em dois tipos: \textit{Single Layer Perceptron}, onde ela possui apenas a camada de entrada e saída, e \textit{Multi Layer Perceptron}, que tem todas as três camadas, podendo ter uma ou mais camada escondida. Esse é o modelo de ANN utilizado para Redes Neurais Convolucionais, explicada no topico \ref{redes neurais convolucionais}.
 
 \section{Redes Neurais Convolucionais}
 \label{redes neurais convolucionais}

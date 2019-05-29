@@ -165,24 +165,24 @@
 	\imprimirerrata{elementos-pre-textuais/errata}
 	\imprimirfolhadeaprovacao
 	%\imprimirdedicatoria{elementos-pre-textuais/dedicatoria}
-	\imprimiragradecimentos{elementos-pre-textuais/agradecimentos}
+	%\imprimiragradecimentos{elementos-pre-textuais/agradecimentos}
 	\imprimirepigrafe{elementos-pre-textuais/epigrafe}
 	\imprimirresumo{elementos-pre-textuais/resumo}
 	\imprimirabstract{elementos-pre-textuais/abstract}
 	\imprimirlistadeilustracoes
 	\imprimirlistadetabelas
-	\imprimirlistadequadros
-	\imprimirlistadealgoritmos
+	%\imprimirlistadequadros
+	%\imprimirlistadealgoritmos
 	\imprimirlistadecodigosfonte
-	\imprimirlistadeabreviaturasesiglas
-	\imprimirlistadesimbolos{elementos-pre-textuais/lista-de-simbolos}
+	%\imprimirlistadeabreviaturasesiglas
+	%\imprimirlistadesimbolos{elementos-pre-textuais/lista-de-simbolos}
 	\imprimirsumario
 
 	%Elementos textuais
 	\textual
 	\input{elementos-textuais/introducao}
-	\input{elementos-textuais/fundamentacao-teorica}
 	\input{elementos-textuais/trabalhos-relacionados}
+	\input{elementos-textuais/fundamentacao-teorica}
 	\input{elementos-textuais/metodologia}
 	\input{elementos-textuais/resultados}
 	\input{elementos-textuais/conclusao}
@@ -190,16 +190,20 @@
 	%Elementos pós-textuais
 	\bibliography{elementos-pos-textuais/referencias}
 	\imprimirglossario
-	\imprimirapendices
+	%\imprimirapendices
 		% Adicione aqui os apendices do seu trabalho
-		\input{elementos-pos-textuais/apendices/savefile.tex}
-		\input{elementos-pos-textuais/apendices/model.tex}
-		\input{elementos-pos-textuais/apendices/utils.tex}
-		\input{elementos-pos-textuais/apendices/drive.tex}
+		%\input{elementos-pos-textuais/apendices/savefile.tex}
+		%\input{elementos-pos-textuais/apendices/model.tex}
+		%\input{elementos-pos-textuais/apendices/utils.tex}
+		%\input{elementos-pos-textuais/apendices/drive.tex}
 		%\input{elementos-pos-textuais/apendices/historico-de-mudancas}
 		%\input{elementos-pos-textuais/apendices/lorem-ipsum}
 		%\input{elementos-pos-textuais/apendices/termo-de-fiel-depositario}
-	%\imprimiranexos
+	\imprimiranexos
+	    \input{elementos-pos-textuais/apendices/savefile.tex}
+		\input{elementos-pos-textuais/apendices/model.tex}
+		\input{elementos-pos-textuais/apendices/utils.tex}
+		\input{elementos-pos-textuais/apendices/drive.tex}
 		% Adicione aqui os anexos do seu trabalho
 		%\input{elementos-pos-textuais/anexos/exemplo-de-anexo}
 		%\input{elementos-pos-textuais/anexos/dinamica-das-classes-sociais}

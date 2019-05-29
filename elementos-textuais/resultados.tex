@@ -1,5 +1,4 @@
 \chapter{Resultados}
-\label{resultados}
 
 \section{PRIMEIRO TESTE}
 \label{primeiro_teste}
@@ -30,7 +29,17 @@ Foram obtidas 977 imagens, o que ainda é muito pouco para criação de um model
 
 O programa python tem acesso as imagens do Jaguar pelo IP de sua câmera. Ao final da captura das imagens, foi executado o programa \textit{model.py} que trata de criar o modelo de testes pro Jaguar, resultado no arquivo \textit{model-XXX.h5}, onde o "XXX" é o número do modelo da vez.
 
-O programa \textit{model.py} tem o diretório com acesso a todas as imagens capturadas e o \textit{driver\_log} criado, caso não tenha sido mudado de lugar. Mas antes de criar o modelo, é feito um tratamento na imagem, com o auxílio o arquivo \textit{util.py}, para que seja processada com mais facilidade pela rede neural. Esse consiste em cortar o céu da imagem, que não será útil para o tratamento pela rede neural; reduzir o tamanho da imagem, o suficiente para ainda sim conseguir ser tratada pela rede neural e não perder nenhuma característica importante; por ultimo, muda as cores da imagem de rgb (o tradicional formato de imagem colorida) para yuv ( um formato mais simples de imagem utilizando menos cores e de processamento mais fácil).
+O programa \textit{model.py} tem o diretório com acesso a todas as imagens capturadas e o \textit{driver\_log} criado, caso não tenha sido mudado de lugar. Mas antes de criar o modelo, é feito um tratamento na imagem, com o auxílio o arquivo \textit{util.py}, para que seja processada com mais facilidade pela rede neural. O proimeiro processo consiste em cortar o céu da imagem, que não será útil para o tratamento pela rede neural(função \textit{crop()}, letra 'B'); reduzir o tamanho da imagem, o suficiente para ainda sim conseguir ser tratada pela rede neural e não perder nenhuma característica importante (função \textit{resize()}, letra 'C'); por ultimo, muda as cores da imagem de rgb (o tradicional formato de imagem colorida) para yuv (um formato mais simples de imagem utilizando menos cores e de processamento mais fácil) (função \textit{rgb2yuv()}, letra 'D'). Os três processos são mostrados na figura \ref{combo}, onde a primeira imagem (letra 'A') é o exemplo utilizada para realizar o processo.
+
+	\begin{figure}[H]
+		\centering
+		\Caption{\label{combo}}
+		\UNIFORfig{}{
+			\fbox{\includegraphics[width=10cm]{figuras/combo.jpg}}
+		}{
+			\Fonte{Elaborada pelo autor}
+		}	
+\end{figure}
 
 Depois de tratada a imagem, é feito a criação dos modelos de rede neural, no qual o melhor será aquela com o menor \textit{val\_loss}. Para isso, é preciso modificar alguns parâmetros dentro do \textit{model.py}: \textit{np\_epoch} (defini o número de épocas de criação do modelo, ou seja, quantas vezes ele será treinado com aqueles padrões), \textit{sample\_per\_epoch} (quantidade de imagens por epoca) e \textit{batch\_size} (tamanho do lote de imagem de treinamento por vez). Normalmente a criação do modelo pode levar horas e exigir muito processamento do computador. Os parâmetros utilizado para cada treinamento estão na tabela \ref{parametros1}.
 
@@ -81,7 +90,7 @@ Para validação do trabalho, é preciso que o Jaguar consiga treinar e percorre
 		\centering
 		\Caption{\label{circuito} Circuito da pista 2}
 		\UNIFORfig{}{
-			\fbox{\includegraphics[width=15cm]{figuras/pistaL4.png}}
+			\fbox{\includegraphics[width=14cm]{figuras/pistaL4.png}}
 		}{
 			\Fonte{Elaborado pelo autor}
 		}	
@@ -105,7 +114,7 @@ O primeiro grande desafio enfrentado foi desenhar um modelo de pista que Jaguar 
 		\centering
 		\Caption{\label{imagem1} Imagem Capturada pela câmera do Jaguar}
 		\UNIFORfig{}{
-			\fbox{\includegraphics[width=15cm]{figuras/imagem1242.jpg}}
+			\fbox{\includegraphics[width=14cm]{figuras/imagem1242.jpg}}
 		}{
 			\Fonte{Elaborado pelo autor}
 		}	
@@ -131,7 +140,7 @@ O grande problema da segunda pista foi o papel toalha. Toda vez que Jaguar errav
 		\centering
 		\Caption{\label{imagem2} Imagem Capturada pela câmera do Jaguar}
 		\UNIFORfig{}{
-			\fbox{\includegraphics[width=15cm]{figuras/pista2imagemboa.jpg}}
+			\fbox{\includegraphics[width=14cm]{figuras/pista2imagemboa.jpg}}
 		}{
 			\Fonte{Elaborado pelo autor}
 		}	
@@ -165,16 +174,60 @@ Para o ultimo caso, a rede neural foi configurada com os parâmetros da tabela \
 \centering
 \caption{Parâmetros de treinamento do segundo modelo}
 \label{tabela2}
-\begin{tabular}{|l|l|l|}
+\begin{tabular}{|l|l|l|l|}
 \hline
-nb\_epoch & samples\_per\_epoch & batch\_size \\ \hline
-20        & 2000                & 200         \\
-20        & 5000                & 150         \\
-20        & 10000               & 150         \\
-30        & 20000               & 150         \\ \hline
+\textbf{Treinamento} & \textbf{nb\_epoch} & \textbf{samples\_per\_epoch} & \textbf{batch\_size} \\ \hline
+1º        & 20        & 2000                & 200         \\
+2º        & 20        & 5000                & 150         \\
+3º        & 20        & 10000               & 150         \\
+4º        & 30        & 20000               & 150         \\ \hline
 \end{tabular}
 \end{table}
 
-Como o número de \textit{epoch} chega ao máximo de 30, poderá haver 30 modelos diferentes, mas não foi isso o que aconteceu. Como o programa está configurado para criar um modelo somente se ele tiver o \textit{val\_loss} menor que o anterior, nem sempre haverá a mesma quantidade de modelos para a quantidade de \textit{epoch} configurada. O programa fez um treinamento para cada \textit{epoch}, mas não gerou um modelo para cada um. Nesse caso foram apenas 16 modelos, nos quais os modelos 000, 001 e 013 se sairam melhor na segunda pista.
+Como o número de \textit{epoch} chega ao máximo de 30, poderá haver 30 modelos diferentes, mas não foi isso o que aconteceu. Como o programa está configurado para criar um modelo somente se ele tiver o \textit{val\_loss} menor que o anterior, nem sempre haverá a mesma quantidade de modelos para a quantidade de \textit{epoch} configurada. O programa fez um treinamento para cada \textit{epoch}, mas não gerou um modelo para cada um. A tabela \ref{tabela3} mostra o resultado dos cinco melhores modelos de cada treinamento realizado da Tabela \ref{tabela2}. Nela, é possível ver o número do treinamento que saiu o modelo (Coluna treinamento), a época do modelo ou número do modelo (coluna Epoch), o tempo que levou para gerar o modelo em segundos (Coluna Tempo de Prcs.(s)), o valor do \textit{Loss} (coluna \textit{Loss}) e o valor do \textit{Val\_loss} (Coluna \textit{Val\_loss}) que é o valor mais importante pois com ele é possível saber o quanto o modelo errou na sua simulação de treinamento. Quanto menor esse valor melhor poderá ser o modelo, Mas isso só pode ser testado na prática. A tabela \ref{tabela3} está organizada do menor valor de \textit{Val\_loss} (no caso o melhor modelo) para o maior.
 
-Para se chegar a um resultado satisfatório, era preciso que o Jaguar percorresse de forma autônoma pelo menos uma das pistas e boa parte da outra. Ele conseguiu fazer isso perfeitamente na primeira pista e boa parte da segunda, como é mostrado no video. Todos os arquivos do projeto podem ser encontrados no \textit{link} do \textit{GitHub} \cite{github}, assim como os video no link do \textit{YouTube} \cite{Youtube}.
+
+
+\begin{table}[H]
+\centering
+\caption{Melhores resultados de cada treinamento Pista 2}
+\label{tabela3}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{Treinamento} & \textbf{Epoch} & \textbf{Tempo de Prcs.(s)} & \textit{\textbf{Loss}} & \textit{\textbf{Val\_loss}} \\ \hline
+2º                   & 11             & 114                        & 0,0716                 & 0,031                       \\
+3º                   & 4              & 209                        & 0,0697                 & 0,033                       \\
+2º                   & 6              & 108                        & 0,0725                 & 0,035                       \\
+1º                   & 17             & 46                         & 0,0735                 & 0,0355                      \\
+2º                   & 16             & 112                        & 0,0758                 & 0,0355                      \\
+3º                   & 11             & 216                        & 0,0795                 & 0,0357                      \\
+2º                   & 10             & 129                        & 0,0687                 & 0,0358                      \\
+1º                   & 13             & 47                         & 0,0723                 & 0,0368                      \\
+2º                   & 12             & 114                        & 0,0693                 & 0,0371                      \\
+3º                   & 5              & 212                        & 0,0707                 & 0,0371                      \\
+1º                   & 12             & 46                         & 0,0734                 & 0,0385                      \\
+4º                   & 3              & 416                        & 0,0686                 & 0,0389                      \\
+1º                   & 19             & 46                         & 0,0725                 & 0,039                       \\
+3º                   & 3              & 211                        & 0,0686                 & 0,0392                      \\
+3º                   & 1              & 236                        & 0,0786                 & 0,0396                      \\
+1º                   & 10             & 46                         & 0,0726                 & 0,0401                      \\
+4º                   & 2              & 420                        & 0,067                  & 0,045                       \\
+4º                   & 4              & 421                        & 0,0705                 & 0,0458                      \\
+4º                   & 1              & 423                        & 0,0736                 & 0,0473                      \\
+4º                   & 6              & 418                        & 0,0751                 & 0,0483 \\ \hline                    
+\end{tabular}
+\end{table}
+
+Em comparação com os modelos da primeira pista na sessão \ref{primeiro_teste}, o resultado do \textit{val\_loss} bem menor, o que significa que, na teoria, era para ser um modelo melhor. Porém, na pratica, o Jaguar teve um melhor desempenho da quadra de atletismo da Unifor. Na segunda pista, localizada na sala da L4 na Unifor, o Jaguar enfrentou alguns problemas devido formato da pista, com curvas muito acentuadas e provavelmente pela cor da parede, que era a mesma cor da borda pista assim como o chão que é da mesma cor tanto dentro quanto fora da pista. Mesmo com a função \textit{crop()} do \textit{utils.py} ainda é fica visível uma pequena parte da parede, como é possível ver na figura \ref{parede}. Tudo isso pode ter gerado uma confusão no algoritmo que gerou o modelo de predição da pista. 
+
+	\begin{figure}[H]
+		\centering
+		\Caption{\label{parede} Exemplo Imagem cortada da Pista 2}
+		\UNIFORfig{}{
+			\fbox{\includegraphics[width=14cm]{figuras/parede.jpg}}
+		}{
+			\Fonte{Elaborado pelo autor}
+		}	
+\end{figure}
+
+Para se chegar a um resultado satisfatório, é preciso que o Jaguar percorra de forma autônoma pelo menos uma das pistas e boa parte da outra. Ele conseguiu fazer isso perfeitamente na primeira pista e boa parte da segunda, como é mostrado no video. Todos os arquivos do projeto podem ser encontrados no \textit{link} do \textit{GitHub}: https://github.com/PedroUnifor/behavioral-cloning-one-camera, assim como os video no link do \textit{YouTube}: https://www.youtube.com/watch?v=l4X\_hcGPhMY.

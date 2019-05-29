@@ -12,12 +12,11 @@ import matplotlib.pyplot as plt
 
 np.random.seed(0)
 
-
 def load_data(args):
     """
     Load training data and split it into training and validation set
     """
-    data_df = pd.read_csv(os.path.join(os.getcwd(), args.data_dir, 'driver_log.csv'), names=['center', 'aceleracao', 'rotacao']) #carrega o arquivo CSV para o DataFrame
+    data_df = pd.read_csv(os.path.join(os.getcwd(), args.data_dir, 'driver_log.csv'), names=['center', 'aceleracao', 'rotacao']) #carrega o arquivo CSV para o DataFrame]
 
     #X = data_df[['center', 'left', 'right']].values
     X = data_df['center'].values
@@ -34,12 +33,7 @@ def load_data(args):
     print(y_train)
     print('--------- ESSE E O Y VALID -------------')
     print(y_valid)
-    print(args.data_dir)
-    #print(y_valid[0,1])
-    #print(y_valid[1,1])
-    #print(y_valid[2,1])
-	
-
+    print(args.data_dir)	
 
     return X_train, X_valid, y_train, y_valid
 

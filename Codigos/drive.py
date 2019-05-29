@@ -12,11 +12,10 @@ from PIL import Image
 from flask import Flask
 from io import BytesIO
 import urllib
+from keras.models import load_model
 
 import rospy
 from geometry_msgs.msg import Twist
-
-from keras.models import load_model
 
 import utils
 
@@ -32,7 +31,6 @@ MIN_SPEED = 0.1
 speed_limit = MAX_SPEED
 
 url = "http://192.168.0.65/jpg/image.jpg"
-#url = "https://pay.google.com/about/static/images/social/og_image.jpg"
 
 def telemetry():
         # The current steering angle of the car
