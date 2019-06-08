@@ -6,7 +6,7 @@
 
 Com o avanço da eletrônica e dos \textit{hardwares} tornou-se possível desenvolver veículos que possuem sistemas embarcados e realizam tarefas de forma totalmente independentes, ou seja, autônoma. \cite{rodrigues2017fundamentos}
 
-No brasil, à indústria automobilística representa 18,2\% da economia nacional, segundo dados de 2011. À adoção de padrões de qualidade, o aumento do nível de exigência dos consumidores e à concorrência do mercado são fatores que impactam diretamente na necessidade de inovação dos veículos produzidos, estimulando o investimento em novas tendências tecnológicas. Entre todas essas tendências, é possível afirmar que à condução autônoma é a mais revolucionária da atualidade. Ela mudará toda à concepção de locomoção veicular que temos. \cite{ rodrigues2017fundamentos}
+No brasil, à indústria automobilística representa 18,2\% da economia nacional, segundo dados do G1 \cite{brasilutimorank}. À adoção de padrões de qualidade, o aumento do nível de exigência dos consumidores e à concorrência do mercado são fatores que impactam diretamente na necessidade de inovação dos veículos produzidos, estimulando o investimento em novas tendências tecnológicas. Entre todas essas tendências, é possível afirmar que à condução autônoma é a mais revolucionária da atualidade. Ela mudará toda à concepção de locomoção veicular que temos. \cite{ rodrigues2017fundamentos}
 
 Carro autônomo é um veículo capaz de ler e interpretar o mundo a sua volta através de sensores e câmeras e interagir com ele, locomovendo-se de forma totalmente autônoma e integrando ao sistema de trânsito com segurança e otimização, garantindo a integridade dos seus passageiros e pessoas ao redor.
 Os carros autônomos trarão diversos benefícios a sociedade. Uma redução na taxa de acidentes e até no engarrafamento será algo notório quando essa revolução acontecer. Já para os motoristas, um dos maiores atrativos é a possibilidade de realizar outras tarefas enquanto o carro dirige, além de ter uma notória economia de combustível já que ele é controlado por um computador e realiza aceleração e frenagem de forma bem mais preciso que um ser humano. Todos esses fatores se mostraram bastante atraentes para as grandes empresas automobilísticas que entraram com tudo na corrida de desenvolvimento de carros autônomos. \cite{inproceedings,rodrigues2017fundamentos}
@@ -27,7 +27,7 @@ Essas características tornam o Jaguar uma excelente plataforma para o uso de in
 
 \begin{figure}[H]
 	\centering
-	\Caption{\label{Jaguar} Jaguar}
+	\Caption{\label{Jaguar} Jaguar e câmera apontada com seta vermelha}
 	\UNIFORfig{}{
 		\fbox{\includegraphics[width=15cm]{figuras/Jaguar.png}}
 	}{
@@ -80,11 +80,11 @@ A Aprendizagem Supervisionada pode ser dividida em dois modelos regressão e cla
 
 \subsection{Aprendizagem não supervisionada}
 \label{Aprendizagem não supervisionada}
-No caso da Aprendizagem não supervisionada o algoritmo irá trabalhar com dados de entrada nos quais não há praticamente nenhum dado de saída ligado a eles. Ou seja, a máquina terá que gerar uma classificação com a entrada entrada, determinado um padrão entre eles \cite{pythonmachinelearning}. Problemas como esse são normalmente mais complexos principalmente por que não há uma resposta para os dados de teste, tornando assim difícil de avaliar o modelo resultante desse aprendizado.
+No caso da Aprendizagem não supervisionada o algoritmo irá trabalhar com dados de entrada nos quais não há praticamente nenhum dado de saída ligado a eles. Ou seja, a máquina terá que gerar uma classificação com a entrada, determinado um padrão entre eles \cite{pythonmachinelearning}. Problemas como esse são normalmente mais complexos principalmente por que não há uma resposta para os dados de teste, tornando assim difícil de avaliar o modelo resultante desse aprendizado.
 
 \subsection{Aprendizagem por Reforço}
 \label{Aprendizagem por Reforço}
-Através de tentativas e erros, o algoritmo de \textit{Machine Learning} vai procurar uma melhor forma de atuar no ambiente de trabalho para encontrar o sinal de recompensa. Por meio da interação, a máquina procura uma série de ações que levam, da melhor maneira possível, a uma determinada recompensa e reduza o erro. Um excelente exemplo dessa aprendizagem é o jogo de xadrez, onde o algoritmo decide, entre uma série de movimentos e o estado do tabuleiro, quais deles vão levar a máquina para vitória e distancia-la da derrota \cite{pythonmachinelearning}.
+Através de tentativas e erros, o algoritmo de \textit{Machine Learning} vai procurar uma melhor forma de atuar no ambiente de trabalho para encontrar o sinal de recompensa. Por meio da interação, a máquina procura uma série de ações que levam, da melhor maneira possível, a uma determinada recompensa e reduza o erro. Um exemplo dessa aprendizagem é o jogo de xadrez, onde o algoritmo decide, entre uma série de movimentos e o estado do tabuleiro, quais deles vão levar a máquina para vitória e distancia-la da derrota \cite{pythonmachinelearning}.
 
 \section{\textit{Deep Learning}}
 \label{deep learning}
@@ -125,7 +125,7 @@ Redes Neurais \textit{Feedforward} são divididas em dois tipos: \textit{Single 
 
 A primeira proposta de um projeto de rede neural convolucional foi feita em 1988, por Yann LeCun. Seu nome era \textit{LeNet} e era utilizada para o reconhecimento de características numéricas. Ela foi de grande utilidade para impulsionar o campo de pesquisa de \textit{Deep Learning} \cite{redesneuraisconv}.
 
-Os algoritmos de CNN podem dar capacidade ao computador de ver o mundo como um ser humano, conseguindo distinguir diferentes objetos e aspectos da imagem em análise. À Figura  \ref{keras_exemple} mostra um excelente exemplo disso, no qual  o algoritmo consegue, com alta taxa de precisão, distinguir os diferentes conteúdos da imagem \cite{conv1,conv2}.
+Os algoritmos de CNN podem dar capacidade ao computador de ver o mundo como um ser humano, conseguindo distinguir diferentes objetos e aspectos da imagem em análise. À Figura  \ref{keras_exemple} mostra um exemplo disso, no qual  o algoritmo consegue, com alta taxa de precisão, distinguir os diferentes conteúdos da imagem \cite{conv1,conv2}.
 
 \begin{figure}[H]
 	\centering
@@ -217,7 +217,7 @@ O resultado final da convolução, o \textit{feature map} é controlado por trê
 \end{description}
 
 Ao final de cada operação de convolução também é comum utilizar uma função de não-linearidade, a ReLU. Sua função é substituir todos os \textit{pixels} negativos por zero do mapa de recursos. Então, a \acrlong{ReLU} (ReLU) introduz a não-linearidade no resultado final já que a maioria dos dados de entrada reais são não-lineares \cite{conv2}.
-A Figura \ref{filtro6} mostra um excelente exemplo da aplicação dessa função, onde a imagem da direita é o resultado depois da aplicação do filtro.
+A Figura \ref{filtro6} mostra um exemplo da aplicação dessa função, onde a imagem da direita é o resultado depois da aplicação da mesma.
 
 \begin{figure}[H]
 	\centering

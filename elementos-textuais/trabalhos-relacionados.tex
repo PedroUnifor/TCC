@@ -1,6 +1,8 @@
 \chapter{Trabalhos Relacionados}
 \label{cap:trabalhos-relacionados}
 
+Com o intuito de entender um pouco mais sobre carros autônomos e o seu funcionamento, esse capítulo mostra cinco exemplos de projetos de carros autônomos e mostra algumas diferenças entre o projeto relacionado e projeto desse trabalho.
+
 \section{\textit{End-to-End Deep Learning for Self-Driving Cars}}
 
 Nesse projeto é utilizado Redes Neurais Convolucionais para fazer uma análise profunda das imagens capturadas pela câmera frontal do carro autônomo e gerar os comandos de direção para o veículo. Com esse sistema o computador aprende a pilotar o carro com apenas a análise do treinamento feito por humanos. Diferentemente de outros carros autônomos, o projeto da Nvidia não decompõe a imagem de forma explícita, como por exemplo, procurar o contorno da estrada na imagem. Ele trabalha a imagem como um todo, juntamente com os valores de angulação e aceleração. \cite{nvidiabojarski2016end}
@@ -11,7 +13,7 @@ O projeto do jaguar é baseado no algoritmo da Nvidia, porém o computador não 
 
 Esse projeto é um dos vários cursos pagos oferecidos pela Udacity que, com parceria de grandes empresas como Google, Amazon e Facebook, tem como intuito oferecer um conhecimento que está em alta demanda no mercado de trabalho. No caso do Projeto \textit{Open Source Self-Driving Car} a Udacity oferece um curso no qual o aluno desenvolve o algoritmo de carro autônomo com redes neurais e pode treinar e testar o algoritmo no simulador desenvolvido pela empresa. \cite{self-drivingcar} 
 
-O projeto do Jaguar utiliza um algoritmo parecido com o do projeto do \textit{Self-Driving Car}, porém ele foi testado em um ambiente real com um veículo real e apenas uma simples câmera ao invés de três, como é utilizado no Source Self-Driving Car. Isso tornou o cálculo da rede neural um pouco mais complexo, porém ainda sim ele conseguiu andar de forma autônoma.
+O projeto do Jaguar utiliza um algoritmo parecido com o do projeto do \textit{Self-Driving Car}, porém ele foi testado em um ambiente real com um veículo real e apenas uma simples câmera ao invés de três, como é utilizado no Source Self-Driving Car. Isso faz com que seja mais difícil para a rede neural criar um modelo de navegação autônoma para o Jaguar devido a menor quantidade de dados de entrada.
 
 \section{\textit{AutoWare}}
 
@@ -24,7 +26,7 @@ O algoritmo do presente trabalho se limita a trabalhar somente com os dados obti
 
 Esse projeto feito pelo Ryan Zotti tem como intuito fazer um carrinho de brinquedo com um \textit{raspberry Pi} dirigir de forma autônoma utilizando um sensor de distância ultrassônico, uma câmera e um algoritmo de inteligência artificial. Para isso, é preciso primeiro treinar o algoritmo com os dados adquiridos do controle remoto, câmera e sensor de distância. Depois de treinado e criado os modelos é possível colocar o carrinho para andar de forma autônoma. \cite{selfdrivingcartoy}
 
-Esse projeto usa um algoritmo muito parecido com o do Jaguar, porém esse algoritmo trabalha fora do Jaguar, enquanto no projeto do Ryan o algoritmo trabalha dentro do microcontrolador, o que pode exigir um poder de processamento muito maior, porém um \textit{delay} de resposta menor devido a ausência da rede wireless, se comparado ao projeto Jaguar.
+Esse projeto usa um algoritmo muito parecido com o do Jaguar, porém, no caso da plataforma, o algoritmo trabalha fora dela, enquanto no projeto do Ryan o algoritmo trabalha dentro do microcontrolador, o que pode exigir um poder de processamento muito maior, porém um \textit{delay} de resposta menor devido a ausência da rede wireless, se comparado ao projeto Jaguar.
 
 \section{NAVEGAÇÃO SEGURA DE UM CARRO AUTÔNOMO UTILIZANDO CAMPOS VETORIAIS E O MÉTODO DA JANELA DINÂMICA}
 \label{NAVEGAÇÃO_SEGURA}

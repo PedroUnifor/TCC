@@ -30,7 +30,7 @@ Projetos como o Smart Camaro, IARA, caRINA, e Wally, mostrados na Figura \ref{ca
 		}	
 \end{figure}
 
-Então o maior motivador para o desenvolvimento desse trabalho é iniciar pesquisas de desenvolvimento na área de carros autônomos, pois no Brasil é uma área ainda pouco explorada, porém com um imenso potencial no qual diversas empresas Além da \textit{Tesla Motors} \cite{empresasenvolvidascomcarrosautonomos} já iniciaram pesquisa e desenvolvimento na área.
+Então o maior motivador para o desenvolvimento desse trabalho é iniciar pesquisas de desenvolvimento na área de carros autônomos, pois no Brasil é uma área ainda pouco explorada, porém com um imenso potencial no qual diversas empresas além da \textit{Tesla Motors} \cite{empresasenvolvidascomcarrosautonomos} já iniciaram pesquisa e desenvolvimento na área.
 
 \section{Objetivos}
 \label{sec:objetivos}
@@ -38,22 +38,21 @@ Então o maior motivador para o desenvolvimento desse trabalho é iniciar pesqui
 \subsection{Objetivo Geral}
 \label{sec:objetivo-geral}
 
-Adaptar o algoritmo do projeto \textit{Car Behavioral Cloning} para Plataforma Robótica Jaguar utilizando apenas uma câmera e utilizar imagens capturadas por ela para treinar o algoritmo de \acrlong{IA} e fazer com que o Jaguar pilote de forma autônoma.
-
+Adaptar o algoritmo do projeto \textit{Car Behavioral Cloning} para Plataforma Robótica Jaguar utilizando apenas uma câmera, capturar imagens e dados de navegação para criar um modelo da rede neural e testá-lo na pista de atletismo da Unifor e em um circuito na sala L4 da Unifor.
 
 \subsection{Objetivos Específicos}
 \label{sec:objetivos-especificos}
 
-\begin{enumerate}
-\item Instalar o ROS \textit{Kinetic} no Ubuntu de Versão 16.04 LTS, criar o \textit{Workspace} e instalar todos os pacotes;
-\item Instalação do Python 3.5.2 e bibliotecas para ambas as versões do Python 2.7 e 3.5.2;
-\item Alterar as configurações de rede do computador para conectar à máquina com o Jaguar;
-\item Obter as imagens e comandos de direção e velocidade do treino nas pistas;
-\item Pilotar o Jaguar em pelo menos duas pistas em diferentes direções;
-\item Treinar o algoritmo para o controle autônomo da Plataforma Robótica Jaguar com diferentes parâmetros;
-\item Testar os modelos criados nas pistas utilizadas para o treinamento;
-\item Avaliar o desempenho do Jaguar nas diferentes pistas, em diferentes direções e com diferentes padrões de treinamento e tirar uma conclusão dos resultados;
-\end{enumerate}
+%\begin{enumerate}
+%\item Instalar o ROS \textit{Kinetic} no Ubuntu de Versão 16.04 LTS, criar o %\textit{Workspace} e instalar todos os pacotes;
+%\item Instalação do Python 3.5.2 e bibliotecas para ambas as versões do Python %2.7 e 3.5.2;
+%\item Alterar as configurações de rede do computador para conectar à máquina com %o Jaguar;
+%\item Obter as imagens e comandos de direção e velocidade do treino nas pistas;
+%\item Pilotar o Jaguar em pelo menos duas pistas em diferentes direções;
+%\item Treinar o algoritmo para o controle autônomo da Plataforma Robótica Jaguar %com diferentes parâmetros;
+%\item Testar os modelos criados nas pistas utilizadas para o treinamento;
+%\item Avaliar o desempenho do Jaguar nas diferentes pistas, em diferentes %direções e com diferentes padrões de treinamento e tirar uma conclusão dos %resultados;
+%\end{enumerate}
 
 
 
@@ -63,5 +62,6 @@ Adaptar o algoritmo do projeto \textit{Car Behavioral Cloning} para Plataforma R
 \item Instalar o ROS em no sistema operacional Ubuntu;
 \item Adaptar o algoritmo do projeto \textit{Car Behavioral Cloning} para utilizar somente uma câmera;
 \item Desenvolver um programa em python que receba as imagens da câmera Jaguar, os dados de aceleração e angulação do robô e salve tudo em arquivo \textit{.csv}:
-\item Criar um modelo de Rede Neural com o 
+\item Criar um modelo para a navegação autônoma que consiga percorrer a pista de atletismo da Unifor e um circuito na sala da L4;
+\item Testar os modelos criados nas duas pistas;
 \end{enumerate}
