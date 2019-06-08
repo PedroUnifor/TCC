@@ -1,7 +1,7 @@
 \chapter{Metodologia}
 \label{chap:metodologia}
 
-Para o desenvolvimento desse projeto, foi utilizado o ROS\textit{ Kinetic}, considerado uma das versões mais estáveis ROS. Ele é compatível apenas com o Ubuntu 16.04, tornando necessário a instalação do mesmo em \textit{dual boot}, mantendo o sistema operacional \textit{Windows} como segunda opção de \textit{boot}. Para isso, o tutorial utilizado para instalar o \textit{Ubuntu} em \textit{dual boot} no computador foi retirado do site \textit{Lcomlinux} \cite{ubuntu}. A figura \ref{instacaoubuntu} mostra a página inicial de instalação do Ubuntu.
+Para o desenvolvimento desse projeto, foi utilizado o ROS\textit{ Kinetic}, considerado uma das versões mais estáveis ROS. Ele é compatível apenas com o Ubuntu 16.04, tornando necessário a instalação do mesmo em \textit{dual boot}, mantendo o sistema operacional \textit{Windows} como segunda opção de \textit{boot}. Para isso, o tutorial utilizado para instalar o \textit{Ubuntu} em \textit{dual boot} no computador foi retirado do site \textit{Lcomlinux} \cite{ubuntu}. A Figura\ref{instacaoubuntu} mostra a página inicial de instalação do Ubuntu.
 
 	\begin{figure}[H]
 		\centering
@@ -14,7 +14,7 @@ Para o desenvolvimento desse projeto, foi utilizado o ROS\textit{ Kinetic}, cons
 	
 Após instalado o sistema, é preciso instalar o ROS e o \textit{python} 3.5 juntamente com os seus respectivos pacotes e biblioteca. O tutorial seguido para instalação do ROS foi retirado do própio site do Ros \cite{rosInstalacao}. Após a sua instalação e criação do seu \textit{Workspace} é preciso instalar os pacotes do Jaguar. Para isso, copie e cole a pasta \textit{DrRobotMotionSensorDriver-master} dentro da pasta src do \textit{Workspace} criada e novamente, no terminal aberto dentro do mesmo \textit{Workspace}, execute o comando catkin\_make. Faça a mesma coisa para a pasta \textit{drrobotV2\_player\-master}.
 
-Caso não funcione, delete a pasta \textit{DrRobotMotionSensorDriver\-master}, mostrada na figura \ref{arquivosROS} deixando somente o \textit{drrobotV2\_player\-master}, e copie os arquivos da pasta \textit{Drivers Ros/WorkSpace} e substitua os arquivos da sua pasta \textit{Devel} pelos arquivos da pasta fornecida e faça novamente o comando \textit{catkin\_make}. Antes de dar continuidade em qualquer comando no terminal para o ROS, execute o comando \textit{“source ...devel/setup.bash”} (substitua os três pontos pelo caminho do diretório do \textit{Workspace} do \textit{Ros}) depois faça o comando anterior. Normalmente é preciso executar o comando \textit{“source ...devel/setup.bash”} sempre que for executar algum \textit{node} do Jaguar. Esse comando não pode ser adicionado a inicialização do terminal pois ele é incompatível com a versão 3.5 do \textit{python}, tornando impossível a execução de programas \textit{python} dessa versão.
+Caso não funcione, delete a pasta \textit{DrRobotMotionSensorDriver\-master}, mostrada na Figura\ref{arquivosROS} deixando somente o \textit{drrobotV2\_player\-master}, e copie os arquivos da pasta \textit{Drivers Ros/WorkSpace} e substitua os arquivos da sua pasta \textit{Devel} pelos arquivos da pasta fornecida e faça novamente o comando \textit{catkin\_make}. Antes de dar continuidade em qualquer comando no terminal para o ROS, execute o comando \textit{“source ...devel/setup.bash”} (substitua os três pontos pelo caminho do diretório do \textit{Workspace} do \textit{Ros}) depois faça o comando anterior. Normalmente é preciso executar o comando \textit{“source ...devel/setup.bash”} sempre que for executar algum \textit{node} do Jaguar. Esse comando não pode ser adicionado a inicialização do terminal pois ele é incompatível com a versão 3.5 do \textit{python}, tornando impossível a execução de programas \textit{python} dessa versão.
 
 	\begin{figure}[H]
 		\centering
@@ -139,7 +139,7 @@ A primeira e segunda linha do código serve para utilizar caracteres especiais n
     \item[urllib.request:] linha 6. Um módulo de interface fácil para buscar dados em sites URL;
     \item[datetime:] linha 7. Manipula data e hora de forma simples ou complexa;
     \item[time:] linha 8. Função que recebe hora e data do sistema;
-    \item[rospy:] linha 9. É uma biblioteca para \textit{python} que permite aos programadores ter acesso aos tópicos, serviços e parâmetros do ROS;
+    \item[rospy:] linha 9. É uma biblioteca para \textit{python} que permite aos programadores terem acesso aos tópicos, serviços e parâmetros do \textit{ROS};
     \item[twist:] linha 10. Serve para enviar ou receber mensagens como pontos, vetores e valores comuns;
 \end{description}
 
@@ -166,7 +166,7 @@ Na linha 15 é declarado o endereço das imagens retiradas pela câmera IP do Ja
 		}	
 \end{figure}
 
-O método salvarArquivos(), n alinha 20, recebe como parâmetros a velocidade enviada para o Jaguar(variável x) e o ângulo (variável z). Primeiramente, na linha 22, será aberto o arquivo de \textit{driver\_logXX.csv} para poder escrever nele. Seguindo para a linha 26, o programa procura o valor da última imagem salva e usa um \textit{'try'} para tentar baixar a imagem fotografada pela câmera IP do Jaguar. Caso não funcione, ele exibe um erro na tela (erro nas linhas 33 e 38). 
+O método salvarArquivos(), na linha 20, recebe como parâmetros a velocidade enviada para o Jaguar(variável x) e o ângulo (variável z). Primeiramente, na linha 22, será aberto o arquivo de \textit{driver\_logXX.csv} para poder escrever nele. Seguindo para a linha 26, o programa procura o valor da última imagem salva e usa um \textit{'try'} para tentar baixar a imagem fotografada pela câmera IP do Jaguar. Caso não funcione, ele exibe um erro na tela (erro nas linhas 33 e 38). 
 
 Na linha 35 ele salva o nome da imagem, valor x e valor z dentro do arquivo csv e por último, na linha 43, ele chama o método \textit{listener()}.
 
@@ -196,7 +196,7 @@ Na linha 62 o método \textit{listener()} chama o método salvarArquivos() e atr
 		}	
 \end{figure}
 
-Na figura \ref{model1} são importadas as bibliotecas padrões que serão utilizadas no código \textit{model.py}, da linha 1 até a linha 11.
+Na Figura\ref{model1} são importadas as bibliotecas padrões que serão utilizadas no código \textit{model.py}, da linha 1 até a linha 11.
 
 	\begin{figure}[H]
 		\centering
@@ -208,7 +208,7 @@ Na figura \ref{model1} são importadas as bibliotecas padrões que serão utiliz
 		}	
 \end{figure}
 
-Na figura \ref{model2} a biblioteca \textit{pandas} é utilizada, na linha 18,  para abrir o arquivo \textit{.csv} criado pelo \textit{savefile.py} (\ref{sec:Savefile.py}) e transformá-lo em um \textit{dataframe} com coluna de nomes 'center', 'aceleracao' e 'rotacao'.
+Na linha 18 da Figura\ref{model2} a biblioteca \textit{pandas} é utilizada para abrir o arquivo \textit{.csv} criado pelo \textit{savefile.py} (\ref{sec:Savefile.py}) e transformá-lo em um \textit{dataframe} com coluna de nomes 'center', 'aceleracao' e 'rotacao'.
 Na linha 20 e 21 os valores de 'center' e 'rotacao' são atribuídos as variáveis x e y, respectivamente. Na linha 23, o valor de X e y é divido em 80\% para treino (X\_train e x\_valid) e 20\% para teste (y\_train e y\_valid), no qual esse percentual está na variável test\_size.
 
 	\begin{figure}[H]
@@ -222,7 +222,7 @@ Na linha 20 e 21 os valores de 'center' e 'rotacao' são atribuídos as variáve
 \end{figure}
 A função da linha 37, \textit{build\_model(args)} cria a rede neural. Ela recebe como entrada um conjunto de argumentos que são declarados dentro do \textit{main()}.
 Primeiramente é adicionado um espaço em branco na memória para o Keras trabalhar, na linha 39. 
-Na linha 40, é adicionado uma camada de normalização de imagem. O número 127.5-1.0 foi escolhido pela comunidade de desenvolvedores depois de treinar e com diferentes valores. Eles normalizam as imagens assim que são colocadas e evitam a saturação e fazem com que o gradiente funcione melhor. Ou seja, as imagens podem vim com sombras, de má qualidade. Essa função pode formatar e remodelar a imagem para trazer boas predições.
+Na linha 40, é adicionado uma camada de normalização de imagem. O número 127.5-1.0 foi escolhido pela comunidade de desenvolvedores depois de treinar com diferentes valores. Eles normalizam as imagens assim que são colocadas e evitam a saturação e fazem com que o gradiente funcione melhor. Ou seja, as imagens podem vim com sombras, de má qualidade. Essa função pode formatar e remodelar a imagem para trazer boas predições.
 Nas linhas 40 à 45 são adicionadas 5 camadas convolucionais na rede neural. Ela recebe os seguintes argumentos: 
 
 \begin{lstlisting}
@@ -256,7 +256,7 @@ Na linha 51 há uma função para imprimir os valores dos \textit{layers} e na 5
 		}	
 \end{figure}
 
-A função \textit{train\_model()}, linha 57 da figura \ref{model4}, tem como função treinar o modelo criado. Na linha 59, há um método que salva um modelo a cada \textit{epoch} (quantidade de vezes que o conjunto será treinado), caso ele tenho um \textit{'val\_loss'} menor que o anterior.
+A função \textit{train\_model()}, linha 57 da Figura\ref{model4}, tem como função treinar o modelo criado. Na linha 59, há um método que salva um modelo a cada \textit{epoch} (quantidade de vezes que o conjunto será treinado), caso ele tenha um \textit{'val\_loss'} menor que o anterior.
 
 O Compilador do modelo, na linha 65, utiliza o método \textit{'mean\_squared\_error'}, que calcula a diferença entre o quadrado do valor esperado e o quadrado do valor obtido e tira a média de todos os valores obtidos para achar o erro. Esse método utiliza o otimizador Adam, que é um gradiente de descida.
 
@@ -274,7 +274,7 @@ Na linha 67, o \textit{mode.fit\_generator} faz o treinamento do modelo. Ele uti
 		}	
 \end{figure}
 
-O método \textit{s2b(s)} da figura \ref{model5} é um simples método utilizado no \textit{main()} para converter \textit{strings} em valores booleanos.
+O método \textit{s2b(s)} da Figura\ref{model5} é um simples método utilizado no \textit{main()} para converter \textit{strings} em valores booleanos.
 
 	\begin{figure}[H]
 		\centering
@@ -286,7 +286,7 @@ O método \textit{s2b(s)} da figura \ref{model5} é um simples método utilizado
 		}	
 \end{figure}
 
-A função inicial do \textit{main()} da figura \ref{model6}, linha 83,  é a criação de uma instância do \textit{ArgumentParser}, a \textit{parser}, e atribuição dos seus argumentos, da linha 86 a 93.
+A função inicial do \textit{main()} da Figura\ref{model6}, linha 83,  é a criação de uma instância do \textit{ArgumentParser}, a \textit{parser}, e atribuição dos seus argumentos, da linha 86 a 93.
 Após a exibição dos parâmetros na tela, da linha 95 até 100, a função \textit{main()} chama as funções \textit{load\_data(args)}, \textit{build\_lode(args)} e \textit{train\_model(model, args, *data)} com os argumentos criados nessa função.
 
 Ao final, na linha 108, a função \textit{main()} é chamada dentro do loop de verificação para inicar o programa.
@@ -303,7 +303,7 @@ Ao final, na linha 108, a função \textit{main()} é chamada dentro do loop de 
 			\Fonte{Elaborado pelo autor}
 		}	
 \end{figure}
-A figura \ref{utils1} mostra basicamente as bibliotecas que são importadas para esse arquivo( no caso, \textit{OpenCV}, \textit{Miscellaneous operating system interfaces}, \textit{Numpy} e \textit{Matplot}, da linha 1 até a linha 4), atribui valores para as variáveis \textit{IMAGE\_HEIGHT}, \textit{IMAGE\_WIDTH} e \textit{\IMAGE\_CHANNELS} e coloca todas esse valores na tupla \textit{INPUT\_SHAPE}.
+A Figura\ref{utils1} mostra basicamente as bibliotecas que são importadas para esse arquivo( no caso, \textit{OpenCV}, \textit{Miscellaneous operating system interfaces}, \textit{Numpy} e \textit{Matplot}, da linha 1 até a linha 4), atribui valores para as variáveis \textit{IMAGE\_HEIGHT}, \textit{IMAGE\_WIDTH} e \textit{\IMAGE\_CHANNELS} e coloca todas esse valores na tupla \textit{INPUT\_SHAPE}.
 
 
 \begin{figure}[H]
@@ -316,7 +316,7 @@ A figura \ref{utils1} mostra basicamente as bibliotecas que são importadas para
 	}	
 \end{figure}
 
-Na figura \ref{utils2} há cinco métodos, onde o primeiro tem a função carregar a imagem para o programa( método \textit{load\_image}, linha 10). Os métodos \textit{crop}, \textit{resize} e \textit{rgb2yuv} (na linha 15, 20 e 25, respectivamente) fazem edições nas imagens e o método final, \textit{preprocess(imagem)}, na linha 30, trata de chamar os métodos de edição de imagem.
+Na Figura\ref{utils2} há cinco métodos, onde o primeiro tem a função de carregar a imagem para o programa (método \textit{load\_image}, linha 10). Os métodos \textit{crop}, \textit{resize} e \textit{rgb2yuv} (na linha 15, 20 e 25, respectivamente) fazem edições nas imagens e o método final, \textit{preprocess(imagem)}, na linha 30, trata de chamar os métodos de edição de imagem.
 
 \begin{figure}[H]
 	\centering
@@ -328,13 +328,13 @@ Na figura \ref{utils2} há cinco métodos, onde o primeiro tem a função carreg
 	}	
 \end{figure}
 
-Os métodos utilizados na figura \ref{utils3} servem para complementar o método \textit{augument()}, modificando a imagem de diversas maneiras.
+Os métodos utilizados na Figura\ref{utils3} servem para complementar o método \textit{augument()}, modificando a imagem de diversas maneiras.
 \begin{description}
     \item[choose\_image(data\_dir, center, steering\_angle):] Linha 42. Escolha aleatoriamente uma imagem e modifica o ângulo de direção.
-    \item[random\_flip(image, steering\_angle):] Linha 52. Gira aleatoriamente a imagem para a esquerda ou para a direita e ajuste o ângulo de direção.
+    \item[random\_flip(image, steering\_angle):] Linha 52. Gira aleatoriamente a imagem para a esquerda ou para a direita, ajustando o ângulo de direção.
     \item[random\_translate(image, steering\_angle, range\_x, range\_y):] Linha 60. Faz uma translação aleatória na imagem.
     \item[random\_shadow(image):] Linha 71. Gera e adiciona sombra aleatória.
-    \item[random\_brightness(image):] Linha 88. Ajuste aleatoriamente o brilho da imagem.
+    \item[random\_brightness(image):] Linha 88. Ajusta aleatoriamente o brilho da imagem.
 \end{description}
 
 \begin{figure}[H]
@@ -347,7 +347,7 @@ Os métodos utilizados na figura \ref{utils3} servem para complementar o método
 	}	
 \end{figure}
 
-O método \textit{augument()} da linha 96 da figura \ref{utils4} utiliza os métodos descritos na figura \ref{utils3}, da linha 42 à 88, para gerar uma imagem diferente das imagens capturadas. Aumentando o número de imagens melhora a previsão da rede neural.
+O método \textit{augument()} da linha 96 da Figura\ref{utils4} utiliza os métodos descritos na Figura\ref{utils3}, da linha 42 à 88, para gerar uma imagem diferente das imagens capturadas. Aumentando o número de imagens melhora a previsão da rede neural.
 
 \begin{figure}[H]
 	\centering
@@ -359,7 +359,7 @@ O método \textit{augument()} da linha 96 da figura \ref{utils4} utiliza os mét
 	}	
 \end{figure}
 
-A função \textit{batch\_generator} da figura \ref{utils5} é gerar imagem de treinamento modificada, fornecer o caminho da imagem e do ângulos de direção e associar a dois \textit{arrays}: \textit{images} e \textit{steers}. Nesse função é possível escolher se a modificação será feita pelo método \textit{augument()}, citado na figura \ref{utils4} ou pelo método \textit{preprocess()}, da figura \ref{utils2}. Para o treinamento da rede neural do projeto, é utilizado o método \textit{augument()} e o método \textit{preprocess()} serve para fazer a validação dos dados treinados.
+A função \textit{batch\_generator} da Figura\ref{utils5} é gerar imagem de treinamento modificada, fornecer o caminho da imagem e dos ângulos de direção e associar a dois \textit{arrays}: \textit{images} e \textit{steers}. Nesse função é possível escolher se a modificação será feita pelo método \textit{augument()}, citado na Figura\ref{utils4} ou pelo método \textit{preprocess()}, da Figura\ref{utils2}. Para o treinamento da rede neural do projeto, é utilizado o método \textit{augument()} e o método \textit{preprocess()} serve para fazer a validação dos dados treinados.
 
 \subsection{\textit{drive.py}}
 \label{sec:drive.py}
@@ -386,7 +386,7 @@ Na linha 1 até a linha 18 do arquivo \textit{drive.py} são importadas as bibli
 	}	
 \end{figure}
 
-Na figura \ref{figura 7}, da linha 20 até á 25, são declaradas as variáveis a serem utilizadas no restante do programa. Na linha 27 a velocidade máxima é limitada ao valor de \textit{MAX\_SPEED} e na linha 29 o link da câmera IP é atribuído à variável \textit{url}.
+Na Figura\ref{figura 7}, da linha 20 até á 25, são declaradas as variáveis a serem utilizadas no restante do programa. Na linha 27 a velocidade máxima é limitada ao valor de \textit{MAX\_SPEED} e na linha 29 o link da câmera IP é atribuído à variável \textit{url}.
 \begin{figure}[H]
 	\centering
 	\Caption{{\label{figura 8}}Linhas de código do 20 à 29 arquivo drive.py}
@@ -397,7 +397,7 @@ Na figura \ref{figura 7}, da linha 20 até á 25, são declaradas as variáveis 
 	}	
 \end{figure}
 
-Na linha 31, a função \textit{telemetry()} da figura \ref{figura 8} começa zerando os valores das variáveis \textit{steering\_angle, throttle} e \textit{speed}. Na linha 35 ele recebe a imagem capturada pelo Jaguar e faz a tratamento dela com os mesmo valores utilizados para criar o modelo. Na linha 41 é criado a previsão para a imagem analisada e salva na instância \textit{steering\_angle}. O \textit{throttle} recebe o valor de 1 menos o módulo do ângulo de direção para diminuir a velocidade conforme ele gira. As linhas 43 e 45 garantem que o valor de velocidade seja sempre menor que valor máximo.
+Na linha 31, a função \textit{telemetry()} da Figura\ref{figura 8} começa zerando os valores das variáveis \textit{steering\_angle, throttle} e \textit{speed}. Na linha 35 ele recebe a imagem capturada pelo Jaguar e faz a tratamento dela com os mesmos valores utilizados para criar o modelo. Na linha 41 é criado a previsão para a imagem analisada e salva na instância \textit{steering\_angle}. O \textit{throttle} recebe o valor de 1 menos o módulo do ângulo de direção para diminuir a velocidade conforme ele gira. As linhas 43 e 45 garantem que o valor de velocidade seja sempre menor que valor máximo.
 
 Ao final da função \textit{telemetry()} os valores de \textit{steering\_angle} e \textit{throttle} são imprimidos na tela e colocados nas variáveis \textit{velocidade.linear.x} e \textit{velocidade.angular.z} para finalmente serem publicados no  \textit{Node} do Jaguar.
 
@@ -411,4 +411,4 @@ Ao final da função \textit{telemetry()} os valores de \textit{steering\_angle}
 	}	
 \end{figure}
 
-Dentro da função \textit{main()}, da linha 54 até a linha 67, são criados os argumentos de localização do modelo e da pasta de imagens. Essa localização tem que ser fornecida pelo usuário na momento de execução do programa. A instância velocidade recebe então a função \textit{Twist()} e é criado, na linha 72, um tópico chamado \textit{pup} para a publicação de mensagens no \textit{Node} do Jaguar. Na linha 73, enquanto o \textit{Node} do \textit{Jaguar} estiver ligado a função \textit{main()} irá continuar chamando a função \textit{telemetry()}.
+Dentro da função \textit{main()}, da linha 54 até a linha 67, são criados os argumentos de localização do modelo e da pasta de imagens. Essa localização tem que ser fornecida pelo usuário no momento de execução do programa. A instância velocidade recebe então a função \textit{Twist()} e é criado, na linha 72, um tópico chamado \textit{pup} para a publicação de mensagens no \textit{Node} do Jaguar. Na linha 73, enquanto o \textit{Node} do \textit{Jaguar} estiver ligado a função \textit{main()} irá continuar chamando a função \textit{telemetry()}.
