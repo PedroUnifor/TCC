@@ -41,7 +41,8 @@ O programa \textit{model.py} tem o diretório com acesso a todas as imagens capt
 		}	
 \end{figure}
 
-Depois da imagem tratada, é feito a criação dos modelos de rede neural pelo arquivo \textit{model.py}. Na tela de execução do programa é mostrado o tempo de criação de cada modelo, o \textit{loss} e o \textit{val\_loss},no qual o melhor será aquela com o menor \textit{val\_loss}. Para isso, é preciso modificar alguns parâmetros dentro do \textit{model.py}: \textit{np\_epoch} (defini o número de épocas de criação do modelo, ou seja, quantas vezes ele será treinado com aqueles padrões), \textit{sample\_per\_epoch} (quantidade de imagens por época) e \textit{batch\_size} (tamanho do lote de imagem de treinamento por vez). Normalmente a criação do modelo pode levar horas e exigir muito processamento do computador. Os parâmetros utilizado para cada treinamento estão na tabela \ref{parametros1} e eles foram escolhidos por serem próximos aos valores do projeto do Naoki Shibuya \cite{naokish}.
+Depois da imagem tratada, é feito a criação dos modelos de rede neural pelo arquivo \textit{model.py}. Na tela de execução do programa é mostrado o tempo de criação de cada modelo, o \textit{loss} e o \textit{val\_loss}. Esse ultimo é o valor mais importante, pois ele é o calculo da taxa de erro do modelo. Esse calculo é feito com 20\% das imagens capturadas, pois apenas 80\% das imagens são utilizadas para criação do modelo, deixando o restante para o calculo do erro, o \textit{val\_loss}.
+Para a criação do modelo é possível modificar alguns parâmetros dentro do \textit{model.py}: \textit{np\_epoch} (defini o número de épocas de criação do modelo, ou seja, quantas vezes ele será treinado com aqueles padrões), \textit{sample\_per\_epoch} (quantidade de imagens por época) e \textit{batch\_size} (tamanho do lote de imagem de treinamento por vez). Normalmente a criação do modelo pode levar horas e exigir muito processamento do computador. Os parâmetros utilizado para cada treinamento estão na tabela \ref{parametros1} e eles foram escolhidos por serem próximos aos valores do projeto do Naoki Shibuya \cite{naokish}.
 
 \begin{table}[H]
 \centering
@@ -60,10 +61,11 @@ Depois da imagem tratada, é feito a criação dos modelos de rede neural pelo a
 \end{table}
 
 O \textit{model.py} está programado para criar o próximo modelo somente se houver um erro menor que o modelo anterior. Ás vezes ele cria somente um modelo pois o primeiro foi o melhor de todos, outras vezes ele cria vários modelos. Isso depende de cada caso.
-No sábado seguinte, foi colocado para testar o último modelo criado, o \textit{model-009.h5} e, para a surpresa de todos, ele funcionou perfeitamente, sem a necessidade de testar nenhum outro modelo. Segue abaixo o valor do \textit{loss}:
+
+No dia do teste foi coloca o último modelo criado, o \textit{model-009.h5}. Ele funcionou perfeitamente, mesmo sendo uma faixa diferente da pista. Não houve necessidade de testar nenhum outro modelo. Segue abaixo o valor do \textit{loss}:
 
 \begin{lstlisting}
-loss: 0.0937 - val\_loss: 0.0564
+loss: 0.0937 - val_loss: 0.0564
 \end{lstlisting}
 
 Com o notebook conectado ao Jaguar, o Programa \textit{drive.py} foi executado juntamente com o \textit{model-009.h5} e, com apenas esse primeiro modelo, foi possível colocar a plataforma para percorrer a pista de atletismo nos dois sentido. A figura \ref{testejaguar} Mostra o teste realizado na pista no qual o notebook está no chão, ao lado do robô.
@@ -79,16 +81,16 @@ Com o notebook conectado ao Jaguar, o Programa \textit{drive.py} foi executado j
 \end{figure}
 
 
-Em alguns momentos o Jaguar foi deslocado um pouco da sua rota. Mesmo assim ele consegue retornar a pista. Os resultados foram impressionantes, principalmente pelo fato das inúmeras limitações para o desenvolvimento do projeto.
+Em alguns momentos o Jaguar foi deslocado um pouco da sua rota, de forma proposital. Mesmo assim ele consegue retornar a pista, seguindo até por partes que ele não foi treinado.
 
 \section{SEGUNDO TESTE}
 \label{segundo}
 
-Para validação do trabalho, é preciso que o Jaguar consiga treinar e percorrer em outros circuitos. O segundo teste foi feita na sala L4 com o formato de pista representado na figura \ref{circuito}:
+Para validação do trabalho, é preciso que o Jaguar consiga treinar e percorrer em outros circuitos. O segundo teste foi feita na sala L4 com o formato do circuito representado na figura \ref{circuito}:
 
 	\begin{figure}[H]
 		\centering
-		\Caption{\label{circuito} Circuito da pista 2}
+		\Caption{\label{circuito} Circuito 2}
 		\UNIFORfig{}{
 			\fbox{\includegraphics[width=14cm]{figuras/pistaL4.png}}
 		}{
@@ -96,11 +98,11 @@ Para validação do trabalho, é preciso que o Jaguar consiga treinar e percorre
 		}	
 \end{figure}
 
-O segundo teste foi o mais trabalhoso. Ele foi realizado no laboratório L4 e a pista teve que ser refeita três vezes. A primeira foi a mais simples, feita de fita adesiva. Ela é mostrada na figura \ref{pista1}.
+O segundo teste foi o mais trabalhoso. Ele foi realizado no laboratório L4 e o circuito teve que ser refeita três vezes. A primeira foi a mais simples, feita de fita adesiva. Ela é mostrada na figura \ref{pista1}.
 
 	\begin{figure}[H]
 		\centering
-		\Caption{\label{pista1} Primeira Pista da L4}
+		\Caption{\label{pista1} Primeiro Circuito da L4}
 		\UNIFORfig{}{
 			\fbox{\includegraphics[width=15cm]{figuras/pista1.jpg}}
 		}{
@@ -108,7 +110,7 @@ O segundo teste foi o mais trabalhoso. Ele foi realizado no laboratório L4 e a 
 		}	
 \end{figure}
 
-O primeiro grande desafio enfrentado foi desenhar um modelo de pista no qual o Jaguar conseguisse visualizar. A fita adesiva, muito fina, não se destacava o suficiente no chão de cinza da L4. Mesmo com várias tentativas e vários modelos criados o Jaguar conseguia no máximo seguir por uma reta ou uma curva simples, mas logo se perdia. A imagem \ref{imagem1} mostra um exemplo de imagem capturada pelo Jaguar nessa pista.
+O primeiro grande desafio enfrentado foi desenhar um modelo de circuito no qual o Jaguar conseguisse visualizar. A fita adesiva, muito fina, não se destacava o suficiente no chão de cinza da L4. Mesmo com várias tentativas e vários modelos criados o Jaguar conseguia no máximo seguir por uma reta ou uma curva simples, mas logo se perdia. A imagem \ref{imagem1} mostra um exemplo de imagem capturada pelo Jaguar nesse circuito.
 
 	\begin{figure}[H]
 		\centering
@@ -121,11 +123,11 @@ O primeiro grande desafio enfrentado foi desenhar um modelo de pista no qual o J
 \end{figure}
 
 
-Mediante o problema de largura da pista, foi criado uma nova seguindo o mesmo modelo da anterior, porém com as bordas mais largas e feita de fita adesiva e papel toalha. Segue a pista na Figura \ref{pista2}:
+Mediante o problema de largura do circuito, foi criado uma nova seguindo o mesmo modelo da anterior, porém com as bordas mais largas e feita de fita adesiva e papel toalha. Segue o circuito na Figura \ref{pista2}:
 
 	\begin{figure}[H]
 		\centering
-		\Caption{\label{pista2} Segunda Pista da L4}
+		\Caption{\label{pista2} Segundo circuito da L4}
 		\UNIFORfig{}{
 			\fbox{\includegraphics[width=15cm]{figuras/pis2.jpg}}
 		}{
@@ -134,7 +136,7 @@ Mediante o problema de largura da pista, foi criado uma nova seguindo o mesmo mo
 \end{figure}
 
 
-O grande problema da segunda pista foi o papel toalha. Toda vez que Jaguar errava alguma movimento e passava por cima da pista ele rasgava o papel toalha. Durante os testes e treinamento ela teve que ser refeita inúmeras vezes, mas pelo menos a segunda pista foi melhor para a visualização do Jaguar. 
+O grande problema do segundo circuito foi o papel toalha. Toda vez que Jaguar errava alguma movimento e passava por cima do circuito ele rasgava o papel toalha. Durante os testes e treinamento ela teve que ser refeita inúmeras vezes, mas o Jaguar conseguir capturar imagens com mais clareza desse circuito, como é mostrado na Figura \ref{imagem2}. 
 
 	\begin{figure}[H]
 		\centering
@@ -146,11 +148,11 @@ O grande problema da segunda pista foi o papel toalha. Toda vez que Jaguar errav
 		}	
 \end{figure}
 
-A última pista foi feita do mesmo material da segunda, porém com a adição de fita zebrada amarela e preta nas bordas da pista. Como o algoritmo visualiza melhor com uma grande diferença de cores, a fita deu um destaque na pista, facilitando para o processamento. A figura \ref{pista3} mostra a aplicação da fita zebrada nas bordas da pista e a figura \ref{imagem3} mostra a mesma pista sendo visualizada pelo câmera do Jaguar.
+O último circuito foi feita do mesmo material da segunda, porém com a adição de fita zebrada amarela e preta nas bordas do circuito. Como o algoritmo visualiza melhor com uma grande diferença de cores, a fita deu um destaque no circuito, facilitando para o processamento. A figura \ref{pista3} mostra a aplicação da fita zebrada nas bordas do circuito e a figura \ref{imagem3} mostra o mesmo circuito sendo visualizada pelo câmera do Jaguar.
 
 	\begin{figure}[H]
 		\centering
-		\Caption{\label{pista3} Última Pista da L4}
+		\Caption{\label{pista3} Último Circuito da L4}
 		\UNIFORfig{}{
 			\fbox{\includegraphics[width=15cm]{figuras/pista3.jpg}}
 		}{
@@ -168,7 +170,7 @@ A última pista foi feita do mesmo material da segunda, porém com a adição de
 		}	
 \end{figure}
 
-Para o último caso, a rede neural foi configurada com os parâmetros da tabela \ref{tabela2}:
+Para o último caso, a rede neural foi configurada com os parâmetros próximos aos parâmetros utilizados para elaborar o modelo da primeira pista, com o intuito de conseguir resultados tão bom quanto. Eles são mostrados na Tabela \ref{tabela2}:
 
 \begin{table}[H]
 \centering
@@ -190,7 +192,7 @@ Como o número de \textit{epoch} chega ao máximo de 30, poderá haver 30 modelo
 
 \begin{table}[H]
 \centering
-\caption{Melhores resultados de cada treinamento Pista 2}
+\caption{Melhores resultados de cada treinamento do Circuito 2}
 \label{tabela3}
 \begin{tabular}{|l|l|l|l|l|l|}
 \hline
@@ -218,11 +220,11 @@ Como o número de \textit{epoch} chega ao máximo de 30, poderá haver 30 modelo
 \end{tabular}
 \end{table}
 
-Em comparação com os modelos da primeira pista na sessão \ref{primeiro_teste}, o resultado do \textit{val\_loss} da segunda pista foi bem menor, o que, em teoria, era para ser o modelo melhor. Na prática, o Jaguar teve um melhor desempenho da quadra de atletismo da Unifor. Na segunda pista, localizada na sala da L4, o Jaguar enfrentou alguns problemas devido o formato da pista, com curvas muito acentuadas; a cor da parede, que era a mesma cor da borda pista; e o chão, que é da mesma cor tanto dentro quanto fora da pista. Mesmo com a função \textit{crop()} do \textit{utils.py} ainda é fica visível uma pequena parte da parede, como é possível ver na figura \ref{parede}. Tudo isso pode ter gerado uma confusão no algoritmo que gera o modelo de predição da pista. 
+Em comparação com os modelos da primeira pista na sessão \ref{primeiro_teste}, o resultado do \textit{val\_loss} da segunda pista foi bem menor, o que, em teoria, era para ser o modelo melhor. Na prática, o Jaguar teve um melhor desempenho da quadra de atletismo da Unifor. Na segunda pista, localizada na sala da L4, o Jaguar enfrentou alguns problemas devido o formato da pista, com curvas muito acentuadas; a cor da parede, que era a mesma cor da borda pista; e o chão, que é da mesma cor tanto dentro quanto fora da pista. Mesmo com a função \textit{crop()} do \textit{utils.py} ainda é fica visível uma pequena parte da parede, como é possível ver na figura \ref{parede}. Tudo isso pode ter gerado uma confusão na rede neural do \textit{model.py}. 
 
 	\begin{figure}[H]
 		\centering
-		\Caption{\label{parede} Exemplo Imagem cortada da Pista 2}
+		\Caption{\label{parede} Exemplo Imagem cortada da Circuito 2}
 		\UNIFORfig{}{
 			\fbox{\includegraphics[width=14cm]{figuras/parede.jpg}}
 		}{
@@ -230,6 +232,6 @@ Em comparação com os modelos da primeira pista na sessão \ref{primeiro_teste}
 		}	
 \end{figure}
 
-Ao final do Projeto, O Jaguar conseguiu percorrer a pista de atletismo totalmente autônomo perfeitamente. Na segunda pista, localizada na sala da L4, ele conseguiu percorrer a pista porém em alguns momentos, principalmente próximo as paredes brancas, ele precisou de um auxílio para retornar a pista. No geral, o Jaguar conseguiu percorrer a primeira pista e boa parte da segunda, mostrando assim um resultado bem satisfatório para o projeto.
+Ao final dos testes, O Jaguar conseguiu percorrer a pista de atletismo totalmente autônomo perfeitamente. No segundo circuito, localizada na sala da L4, ele conseguiu percorrer a pista porém em alguns momentos, principalmente próximo as paredes brancas, ele precisou de um auxílio para retornar ao circuito.
 Todos os arquivos do projeto podem ser encontrados no \textit{link} do \textit{GitHub}: https://github.com/PedroUnifor/behavioral-cloning-one-camera, assim como os video no link do \textit{YouTube}:
 https://youtu.be/l4X\_hcGPhMY.
