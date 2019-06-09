@@ -3,7 +3,7 @@
 \section{PRIMEIRO TESTE}
 \label{primeiro_teste}
 O primeiro teste do projeto foi realizado na pista de atletismo da Unifor, no dia 8 de dezembro.
-Logo ao chegar na pista de atletismo deparamos com o primeiro problema: a extensão não era grande o suficiente para atingir todo o percurso que escolhemos para treinar o Jaguar. Pedimos então aos auxiliares por uma nova extensão que foi entregue em pouco tempo. O jaguar foi treinado em apenas uma parte da pista, indo e voltando duas vezes. o caminho percorrido é mostrado na figura \ref{pistaunifor}.
+Logo ao chegar na pista de atletismo deparamos com o primeiro problema: o cabo de força não era grande o suficiente para atingir todo o percurso que escolhemos para treinar o Jaguar. Pedimos então aos auxiliares por uma nova extensão para o cabo que foi entregue em pouco tempo. O jaguar foi treinado em apenas uma parte da pista, indo e voltando duas vezes. o caminho percorrido é mostrado na figura \ref{pistaunifor}.
 
 	\begin{figure}[H]
 		\centering
@@ -15,7 +15,7 @@ Logo ao chegar na pista de atletismo deparamos com o primeiro problema: a extens
 		}	
 \end{figure}
 
-Foram obtidas 977 imagens, o que ainda é muito pouco para criação de um modelo adequado para esse tipo de trabalho. Essas Imagens foram obtidas pela câmera do jaguar usando o programa \textit{savefile.py} enquanto um aluno pilotava o robô. As imagens são tiradas a cada movimento novo realizado no \textit{Joystick}. Na imagem \ref{jaguarelog} podemos ver a esquerda um exemplo de imagem capturada pela câmera do jaguar e a direta o resultado do terminal de execução do programa \textit{savefile.py}.
+Foram obtidas 977 imagens em um percurso de ida e volta na pista em diferentes faixas, com o intuito de gravar o imagens com as diferentes cores da pista. Elas foram obtidas pela câmera do jaguar usando o programa \textit{savefile.py} enquanto um aluno pilotava o robô. As imagens são tiradas a cada movimento novo realizado no \textit{Joystick}. Na imagem \ref{jaguarelog} podemos ver a esquerda um exemplo de imagem capturada pela câmera do jaguar e a direta o resultado do terminal de execução do programa \textit{savefile.py}.
 
 	\begin{figure}[H]
 		\centering
@@ -41,7 +41,7 @@ O programa \textit{model.py} tem o diretório com acesso a todas as imagens capt
 		}	
 \end{figure}
 
-Depois da imagem tratada, é feito a criação dos modelos de rede neural, no qual o melhor será aquela com o menor \textit{val\_loss}. Para isso, é preciso modificar alguns parâmetros dentro do \textit{model.py}: \textit{np\_epoch} (defini o número de épocas de criação do modelo, ou seja, quantas vezes ele será treinado com aqueles padrões), \textit{sample\_per\_epoch} (quantidade de imagens por época) e \textit{batch\_size} (tamanho do lote de imagem de treinamento por vez). Normalmente a criação do modelo pode levar horas e exigir muito processamento do computador. Os parâmetros utilizado para cada treinamento estão na tabela \ref{parametros1}.
+Depois da imagem tratada, é feito a criação dos modelos de rede neural pelo arquivo \textit{model.py}. Na tela de execução do programa é mostrado o tempo de criação de cada modelo, o \textit{loss} e o \textit{val\_loss},no qual o melhor será aquela com o menor \textit{val\_loss}. Para isso, é preciso modificar alguns parâmetros dentro do \textit{model.py}: \textit{np\_epoch} (defini o número de épocas de criação do modelo, ou seja, quantas vezes ele será treinado com aqueles padrões), \textit{sample\_per\_epoch} (quantidade de imagens por época) e \textit{batch\_size} (tamanho do lote de imagem de treinamento por vez). Normalmente a criação do modelo pode levar horas e exigir muito processamento do computador. Os parâmetros utilizado para cada treinamento estão na tabela \ref{parametros1} e eles foram escolhidos por serem próximos aos valores do projeto do Naoki Shibuya \cite{naokish}.
 
 \begin{table}[H]
 \centering

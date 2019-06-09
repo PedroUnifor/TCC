@@ -71,7 +71,7 @@ Esse comando irá executar o ROS ná máquina.
 
 Abra outro terminal e execute:
 \begin{lstlisting}
-source (diretório do workspace)/devel/setup.bash
+source (pasta do workspace)/devel/setup.bash
 rosrun drrobot_jaguarV2_player drrobot_jaguarv2_player_node 
 \end{lstlisting}
 Há duas opções de comando do ROS para controlar o Jaguar: pelo teclado e pelo joystic
@@ -94,26 +94,28 @@ Depois basta apenas plugar o Joystick no computador e controlar o Jaguar.
 
 \section{programas essenciais}
 \label{sec:programas essenciais}
-Há quatro programas essenciais para o funcionamento do projeto: \textit{savefile.py, Model.py, Utils.py} e \textit{Drive.py}. Cada um desses arquivos desempenha uma função única e fundamental para o perfeito funcionamento do sistema autônomo no jaguar.
+Há quatro programas essenciais para o funcionamento do projeto: \textit{savefile.py, Model.py, Utils.py} e \textit{Drive.py}. Eles são todos programados em python e cada um desses arquivos desempenha uma função única e fundamental para o perfeito funcionamento do sistema autônomo no jaguar.
 
 \subsection{\textit{Savefile.py}}
 \label{sec:Savefile.py}
-É o primeiro arquivo a ser executado e serve para salvar as imagens capturadas pelo Jaguar e criar o arquivo \textit{driver\_log.csv} que contém a localização de cada uma das imagens juntamente com o ângulo de rotação e valor de aceleração do exato momento de captura da imagem. 
+
+É o primeiro arquivo a ser executado. Ele foi criado pelo autor do projeto com o intuito de salvar as imagens capturadas pelo Jaguar e criar o arquivo \textit{driver\_log.csv} que contém a localização de cada uma das imagens juntamente com o ângulo de rotação e valor de aceleração do exato momento de captura da imagem. 
 
 
 Esse arquivo deve ser executado enquanto o piloto controla o Jaguar para adquirir os dados de análise (no caso, o \textit{driver\_log.csv} e as imagens) e, de preferência, que seja obtido um grande número de dados para a criação de um bom modelo. 
 
 \subsection{\textit{Model.py}}
 
-É o arquivo de criação de modelo. Ele irá receber os dados do arquivo \textit{driver\_log.csv} e as imagens para criar os modelos de teste do Jaguar. Nesse arquivo, é possível editar todos os parâmetros de entrada de dados e saída dos modelos. Esses parâmetros serão explicados juntamente com o código do \textit{model.py} na sessão \ref{codigo_model}. 
+É o arquivo de criação de modelo. 
+Ele foi desenvolvido pelo a Udacity e adaptado para esse projeto com intuito de criar um modelo de predição para o Jaguar a partir do arquivo \textit{driver\_log.csv}. Nesse arquivo, é possível editar todos os parâmetros de entrada de dados e saída dos modelos. 
 
 \subsection{\textit{Utils.py}}
 
- O jaguar consegue tirar fotos e gravar em alta resolução. Isso pode ser muito bom a princípio, porém imagens grandes podem aumentar ainda mais tempo de criação do modelo e processamento. Então, para resolver esse problema existe o \textit{utils.py}: ele edita as imagens para facilitar o processamento do \textit{model.py} e \textit{drive.py}, já que o programa irá examinar \textit{pixel} por pixel de cada imagem, onde uma mudança em qualquer um dos \textit{pixels} o computador reconhece como uma nova imagem. As funções contidas no \textit{util.py} serão explicadas juntamente com o seu código, na sessão \ref{sec:utils.py}. 
+ O jaguar consegue tirar fotos e gravar em alta resolução. Isso pode ser muito bom a princípio, porém imagens grandes podem aumentar ainda mais tempo de criação do modelo e predição. Então, para resolver esse problema a Udacity fornece o \textit{utils.py}: ele edita as imagens para facilitar o processamento do \textit{model.py} e \textit{drive.py}, já que o programa irá examinar \textit{pixel} por pixel de cada imagem, onde uma mudança em qualquer um dos \textit{pixels} o computador reconhece como uma nova imagem.
 
 \subsection{\textit{Drive.py}}
 
-Esse programa realiza o controle autônomo do Jaguar. Ele trabalha em conjunto com os arquivos modelo (\textit{"model-002.h5"}, por exemplo) e o \textit{utils.py}, os quais se comunicam por uma rede wireless. Ele recebe as imagens do Jaguar por ip e retorna comandos de velocidade e angulação para o \textit{Node}. 
+Esse programa foi fornecido pelo Udacity e adaptado para esse projeto. Sua função é realizar o controle autônomo do Jaguar trabalhando em conjunto com os arquivos modelo (\textit{"model-002.h5"}, por exemplo) e o \textit{utils.py}. Ele recebe as imagens do Jaguar por ip e retorna comandos de velocidade e angulação para o \textit{Node} da rede do Jaguar. 
 
 \section{Código}
 \label{codigo}
