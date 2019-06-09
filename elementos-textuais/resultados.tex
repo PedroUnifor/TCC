@@ -220,7 +220,7 @@ Como o número de \textit{epoch} chega ao máximo de 30, poderá haver 30 modelo
 \end{tabular}
 \end{table}
 
-Em comparação com os modelos da primeira pista na sessão \ref{primeiro_teste}, o resultado do \textit{val\_loss} da segunda pista foi bem menor, o que, em teoria, era para ser o modelo melhor. Na prática, o Jaguar teve um melhor desempenho da quadra de atletismo da Unifor. Na segunda pista, localizada na sala da L4, o Jaguar enfrentou alguns problemas devido o formato da pista, com curvas muito acentuadas; a cor da parede, que era a mesma cor da borda pista; e o chão, que é da mesma cor tanto dentro quanto fora da pista. Mesmo com a função \textit{crop()} do \textit{utils.py} ainda é fica visível uma pequena parte da parede, como é possível ver na figura \ref{parede}. Tudo isso pode ter gerado uma confusão na rede neural do \textit{model.py}. 
+Em comparação com os modelos da primeira pista na sessão \ref{primeiro_teste}, o resultado do \textit{val\_loss} da segunda pista foi bem menor, o que, em teoria, era para ser o modelo melhor. Na prática, o Jaguar teve um melhor desempenho da quadra de atletismo da Unifor. Na segunda pista, localizada na sala da L4, o Jaguar enfrentou alguns problemas devido o formato da pista, com curvas muito acentuadas; a cor da parede, que era a mesma cor da borda pista; e o chão, que é da mesma cor tanto dentro quanto fora da pista. Mesmo com a função de cortar imagem do \textit{utils.py} ainda é fica visível uma pequena parte da parede, como é possível ver na figura \ref{parede}. Tudo isso pode ter gerado uma confusão na rede neural do \textit{model.py}. 
 
 	\begin{figure}[H]
 		\centering
@@ -232,6 +232,6 @@ Em comparação com os modelos da primeira pista na sessão \ref{primeiro_teste}
 		}	
 \end{figure}
 
-Ao final dos testes, O Jaguar conseguiu percorrer a pista de atletismo totalmente autônomo perfeitamente. No segundo circuito, localizada na sala da L4, ele conseguiu percorrer a pista porém em alguns momentos, principalmente próximo as paredes brancas, ele precisou de um auxílio para retornar ao circuito.
+Ao final dos testes, O Jaguar conseguiu percorrer a pista de atletismo totalmente autônomo, até um pouco mais do percurso que ele foi treinado. No segundo circuito, localizada na sala da L4, ele conseguiu percorrer a pista porém em alguns momentos, principalmente próximo as paredes brancas, ele precisou de um auxílio para retornar ao circuito.
 Todos os arquivos do projeto podem ser encontrados no \textit{link} do \textit{GitHub}: https://github.com/PedroUnifor/behavioral-cloning-one-camera, assim como os video no link do \textit{YouTube}:
 https://youtu.be/l4X\_hcGPhMY.

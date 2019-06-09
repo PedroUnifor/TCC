@@ -1,22 +1,26 @@
 \chapter{Conclusões e Trabalhos Futuros}
 \label{chap:conclusoes-e-trabalhos-futuros}
 
-Mesmo diante de algumas limitações, o Jaguar consegue nevegar de forma autônoma. Na primeira pista o seu desempenho foi excelente, o que surpreendeu a todos pelo pouco treinamento da rede neural e escassez de recursos tanto para o teste quanto para o treinamento.
+Mediante o resultado dos dois testes, é possível concluir que o algoritmo funcionou bem no Jaguar, conseguindo capturar as imagens e os dados de entrada, criar o modelo e pilotar nas pistas de forma autônoma. 
 
-Na segunda pista o seu desempenho foi satisfatório, porém não tão bom quanto na pista de atletismo na Unifor. Em alguns momentos ele agia como se não conseguisse visualizar as bordas da pista, acabando fugindo um pouco dela. Porém, por mais que alguns momentos tivesse que parar para ajustá-lo, ele conseguiu realizar todas as curvas do percurso, satisfazendo assim as exigências básicas para a conclusão do projeto.
+Na primeira pista o desempenho da plataforma foi excelente. No primeiro modelo testado já foi possível fazer o Jaguar navegar autonomamente e percorrer um percurso maior que o percurso treinado.
+
+No circuito da L4 o Jaguar conseguiu percorrer por toda a pista, porém, nas proximidades das paredes brancas ele se fugiu um pouco do percurso, sendo preciso retorná-lo ao circuito. Mas apesar apesar desses pequenos problemas ele conseguiu visualizar a pista todas as curvas.
+
+Com o resultado dos testes é possível concluir que o algoritmo funciona com apenas uma câmera, porém ele consegue navegar autonomamente apenas em pistas simples como a pista de atletismo e o circuito da L4. No momento que ele foi colocado em determinados pontos do circuito 2, onde as paredes eram bem visíveis, o Jaguar se perdia, mostrando assim a necessidade de cores da pista bem destacadas e diferentes da parede.
 
 \section{Limitações}
 \label{sec:limitacoes}
 
 Sem dúvida a maior limitação foi a perda da bateria do Jaguar. Sem ela, foi preciso usar cabos para ligar o Jaguar diretamente na tomada, impossibilitando dele percorrer longas distâncias na quadra de atletismo na Unifor e fazer um longo percusso na sala da L4 por causa das pilastras.
 
-Para fazer um bom treinamento é preciso ter uma grande quantidade de fotos. Algoritmos de Aprendizagem Profunda foram desenvolvidos para trabalhar com uma imensa quantidade de dados e, no caso de imagens, eles chegam a trabalhar com mais de dez mil imagens. Nesse projeto, cada treinamento foi feito com no máximo duas mil imagens devido as limitações de cabo e tempo, resultando em modelos não tão otimizados.
+Para fazer um bom treinamento é preciso ter uma grande quantidade de fotos. Algoritmos de Aprendizagem Profunda foram desenvolvidos para trabalhar com uma imensa quantidade de dados. Nesse projeto, cada treinamento foi feito com no máximo duas mil imagens devido as limitações de cabo e tempo, resultando em modelos não tão otimizados.
 
-O material para fazer a segunda pista era o de pior qualidade. Toda vez que o Jaguar confundia uma trajetória ele destruía parte da pista e mesmo consertando ela não ficava tão perfeita quanto era antes. Isso atrapalha na hora da criação de novos modelos e até para os testes.
+O material para fazer a segunda pista era o de pior qualidade. Toda vez que o Jaguar confundia uma trajetória ele destruía parte da pista e mesmo consertando ela não ficava tão perfeita quanto era antes. Isso atrapalha na hora da criação de novos modelos e até para a predição.
 
-As cores das paredes e pistas provavelmente causaram uma confusão no algoritmo da rede neural. As bordas das pistas eram brancas, assim como as paredes da sala da L4 e o chão da pista era o mesmo chão de fora da pista. O algoritmo precisa de cores diferenciadas para saber por onde o deve percorrer. Se as cores são parecidas, provavelmente ele não vai diferenciar com clareza o que é e o que não é pista.
+As cores das paredes e pistas causaram uma confusão no algoritmo da rede neural. As bordas das pistas eram brancas, assim como as paredes da sala da L4 e o chão de dentro pista era o mesmo chão de fora da pista. O algoritmo precisa de cores diferenciadas para saber por onde o veículo deve percorrer. Se as cores são parecidas, provavelmente ele não vai diferenciar com clareza o que é e o que não é pista.
 
 \section{Trabalhos Futuros}
 \label{sec:trabalhos-futuros}
 
-Esse trabalho foi apenas o pontapé inicial de um projeto que ainda pode crescer muito. Se o Jaguar for levado para outras pistas na intenção de obter novos dados de treinamento será possível aperfeiçoar ainda mais o seu modelo de navegação autônoma. Além disso, o jaguar possui sensores como GPS  (sistema de posicionamento global) e \textit{LiDAR} (sensor que mede a distância de objetos próximos) que podem ser utilizados para trabalharem juntos com a câmera e o algoritmo de inteligência artificial aperfeiçoando ainda mais a navegação autônoma da plataforma.
+Esse trabalho foi apenas o inicio de um projeto que ainda pode evoluir muito. Se o Jaguar for levado para outras pistas na intenção de obter mais dados de treinamento será possível aperfeiçoar ainda o seu modelo de navegação autônoma. Além disso, o jaguar possui sensores como GPS  (sistema de posicionamento global) e \textit{LiDAR} (sensor que mede a distância de objetos próximos) que podem ser utilizados para trabalharem juntos com a câmera e o algoritmo de inteligência artificial aperfeiçoando ainda mais o sistema de navegação autônoma da plataforma.
