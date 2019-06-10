@@ -3,19 +3,19 @@
 
 Para o desenvolvimento desse projeto, foi utilizado o ROS \textit{Kinetic}, considerado uma das versões mais estáveis ROS. Ele é compatível apenas com o Ubuntu 16.04, tornando necessário a instalação do mesmo em \textit{dual boot}, mantendo o sistema operacional \textit{Windows} como segunda opção de \textit{boot}.
 
-A comunicação com o Jaguar é feita através de uma rede \textit{wireless}. Nessa rede terá um \textit{node} do ROS que controla a aceleração e o angulo de rotação da plataforma. É possível acessá-lo conectando um dispositivo na mesma rede do Jaguar e um \textit{node master}, que é um \textit{node} que tem o endereço de todos os outros dispositivos conectados a rede. Com um computador é possível criar o \textit{master} e mais quantos outros \textit{nodes} for preciso no mesmo dispositivo.
+A comunicação com o Jaguar é feita através de uma rede \textit{wireless}. Nessa rede terá um \textit{node} do ROS que controla a aceleração e o ângulo de rotação da plataforma. É possível acessá-lo conectando um dispositivo na mesma rede do Jaguar e um \textit{node master}, que é um \textit{node} que tem o endereço de todos os outros dispositivos conectados a rede. Com um computador é possível criar o \textit{master} e mais quantos outros \textit{nodes} for preciso no mesmo dispositivo.
 
 Com o computador conectado a rede \textit{wireless} do Jaguar e os \textit{nodes} do ROS funcionando, é possível configurar um controle remoto para a plataforma. Esse controle trás uma praticidade e uma precisão para gerar dados que o teclado do computador não possui. O PC cria um novo \textit{node} na rede que enviará comandos ao \textit{node} de aceleração e rotação da plataforma. 
 
-Para fazer a navegação autônoma do Jaguar por apenas uma câmera é preciso primeiro ter um modelo treinado com dados constituídos de imagens e seus respectivos valores de angulação e aceleração capturas pela plataforma. Esses dados precisam ser de algum circuito onde o Jaguar foi controlado por uma pessoa, já que o algoritmo de CNN precisa ter uma base de dados para criar o Modelo.
+Para fazer a navegação autônoma do Jaguar por apenas uma câmera é preciso primeiro ter um modelo treinado com dados constituídos de imagens e seus respectivos valores de angulação e aceleração capturas pela plataforma. Esses dados precisam ser de algum percurso onde o Jaguar foi controlado por uma pessoa, já que o algoritmo de CNN precisa ter uma base de dados para criar o modelo.
 
 Os dados de treinamento são obtidos enquanto o Jaguar é controlado por controle remoto executando o arquivo \textit{Savefile.py}. Seu funcionamento é explicado na sessão \ref{sec:Savefile.py} e é preciso que o Jaguar seja controlado com muito cuidado e atenção para obter dados de qualidade.
 
-O modelo é feito pelo \textit{Model.py}. Ele cria vário modelos de acordo com o valor de \textit{epoch}, que determina essa quantidade, mas o modelo seguinte só será criado se o seu \textit{val\_loss} for menor que o modelo anterior. Esse \textit{val\_loss} é exibido na tela de execução do arquivo e mostra o erro do modelo feito no teste simulado. Quando o \textit{model.py} vai criar o modelo ele separa 80\% das imagens para o treinamento e 20\% para o teste do modelo criado. O \textit{val\_loss} mostra o erro do treinamento, por isso esse valor precisa ser o menor possível.
+O modelo é feito pelo \textit{Model.py}. Ele cria vário modelos de acordo com o valor de \textit{epoch}, que determina essa quantidade, mas o modelo seguinte só será criado se o seu \textit{val\_loss} for menor que o modelo anterior. Esse \textit{val\_loss} é exibido na tela de execução do arquivo e mostra o erro do modelo feito no teste simulado. Quando o \textit{model.py} vai criar o modelo ele separa 80\% das imagens para o treinamento e 20\% para o teste do modelo criado. O \textit{val\_loss} mostra o erro do teste, por isso esse valor precisa ser o menor possível.
 
-O algoritmo de Rede Neural Convolucional é mesmo utilizado no projeto \textit{Car Behavioral Cloning} \cite{naokish}. E o python, linguagem computacional dos arquivos esse projeto, é utilizada para o desenvolvimento da CNN e também é incluída nativamente no ROS, facilitando toda a integração do projeto. Por isso o uso dela.
+O algoritmo de Rede Neural Convolucional é mesmo utilizado no projeto \textit{Car Behavioral Cloning} \cite{naokish}. E o python, linguagem computacional dos arquivos desse projeto, é utilizada para o desenvolvimento da CNN e também é incluída nativamente no ROS, facilitando toda a integração do projeto. Por isso o uso dela.
 
-Com o modelo gerado a conexão \textit{wireless} com o Jaguar estabelecida é possível colocar a plataforma para testar os modelos de navegação autônoma. O arquivo \textit{drive.py} realiza o controle autônomo da plataforma e ele foi programado para ser executado no \textit{terminal} do Linux ao lado do modelo escolhido para o treinamento. Através da rede \textit{wireless} o \textit{model.py} se conecta a câmera IP do Jaguar e captura a imagem, faz todo o processamento da mesma e enviar para o \textit{node} da rede o respectivo valor de aceleração e angulação para aquela imagem capturada. 
+Com o modelo gerado e a conexão \textit{wireless} com o Jaguar estabelecida é possível colocar a plataforma para testar os modelos de navegação autônoma. O arquivo \textit{drive.py} realiza o controle autônomo da plataforma e ele foi programado para ser executado no \textit{terminal} do Linux ao lado do modelo escolhido para o treinamento. Através da rede \textit{wireless} o \textit{drive.py} se conecta a câmera IP do Jaguar e captura as imagens, faz todo o processamento com cada uma delas e envia para o \textit{node} da rede o respectivo valor de aceleração e angulação de cada uma. 
 
 Todos esses programas são essenciais para o funcionamento do projeto e serão explicados com mais detalhes na sessão \ref{sec:programas essenciais}.
 
@@ -28,11 +28,11 @@ Há quatro programas essenciais para o funcionamento do projeto: \textit{savefil
 \subsection{\textit{Savefile.py}}
 \label{sec:Savefile.py}
 
-É o primeiro arquivo a ser executado. Ele foi criado pelo autor do projeto com o intuito de salvar as imagens capturadas pelo Jaguar e criar o arquivo \textit{driver\_log.csv} que contém a localização de cada uma das imagens juntamente com o ângulo de rotação e valor de aceleração do exato momento de captura da imagem. 
+É o primeiro arquivo a ser executado. Ele foi criado pelo autor do projeto com o intuito de salvar as imagens capturadas pelo Jaguar e criar o arquivo \textit{driver\_log.csv} que contém a localização de cada uma das imagens juntamente com o ângulo de rotação e valor de aceleração do exato momento de captura. 
 
 Esse arquivo deve ser executado enquanto o piloto controla o Jaguar para adquirir os dados de análise (no caso, o \textit{driver\_log.csv} e as imagens) e, de preferência, que seja obtido um grande número de dados para a criação de um bom modelo. 
 
-O \textit{Savefile.py} possui bibliotecas como ''cvs'' e ''os'' para tratamento dos dados e ''rospy'' e ''twist'' para criar um \textit{node} do ROS na rede do Jaguar e receber os dados de angulação e rotação enviados pelo piloto. Para receber esse dados, há um método dentro do arquivo chamado de \textit{listener()} que recebe todos os valores enviados para o \textit{node} de movimentação do Jaguar. Assim que o valor muda, é chamado o método salvarArquivos() para abrir o arquivo .csv e salvar os dados e as imagens capturadas no exato instante de movimentação do Jaguar.
+O \textit{Savefile.py} possui bibliotecas como ''cvs'' e ''os'' para tratamento dos dados e ''rospy'' e ''twist'' para criar um \textit{node} do ROS na rede do Jaguar e receber os dados de angulação e rotação enviados pelo piloto. Para receber esse dados, há um método dentro do arquivo chamado de \textit{listener()} que recebe todos os valores enviados para o \textit{node} de movimentação do Jaguar. Assim que o valor muda, é chamado o método \textit{salvarArquivos()} para abrir o arquivo .csv e salvar os dados e as imagens capturadas no exato instante de movimentação do Jaguar.
 
 \subsection{\textit{Model.py}}
 \label{sec:model.py}
@@ -102,9 +102,9 @@ Esse arquivo também tem a função de gerar imagens modificadas, com o intuito 
 \subsection{\textit{Drive.py}}
 \label{sec:drive.py}
 
-Esse programa foi fornecido pelo Udacity e adaptado para esse projeto. Sua função é realizar o controle autônomo do Jaguar trabalhando em conjunto com os arquivos modelo (\textit{"model-002.h5"}, por exemplo) e o \textit{utils.py}. Ele recebe as imagens do Jaguar por ip, faz o tratamento delas com o auxilio do \textit{utils.py} e retorna comandos de velocidade e angulação para o \textit{Node} da rede do Jaguar. 
+Esse programa foi fornecido pelo Udacity e adaptado para esse projeto. Sua função é realizar o controle autônomo do Jaguar trabalhando em conjunto com os arquivos modelo (\textit{"model-002.h5"}, por exemplo) e o \textit{utils.py}. Ele recebe as imagens do Jaguar por IP, faz o tratamento delas com o auxílio do \textit{utils.py} e retorna comandos de velocidade e angulação para o \textit{node} da rede do Jaguar. 
 
-Esse arquivo foi modificado para receber as imagens da câmera por IP como é mostrado na linha 35 da Figura \ref{figura 8} e limitar a velocidade para a velocidade máxima do Jaguar(variável \textit{MAX\_SPEEP}: 1.0).
+Esse arquivo foi modificado para receber as imagens da câmera por IP como é mostrado na linha 35 da Figura \ref{figura 8} e limitar a velocidade para a máxima do Jaguar(variável \textit{MAX\_SPEEP}: 1.0).
 
 \begin{figure}[H]
 	\centering
@@ -116,6 +116,4 @@ Esse arquivo foi modificado para receber as imagens da câmera por IP como é mo
 	}	
 \end{figure}
 
-Na linha 31, a função \textit{telemetry()} da Figura \ref{figura 8} começa zerando os valores das variáveis \textit{steering\_angle, throttle} e \textit{speed}. Na linha 35 ele recebe a imagem capturada pelo Jaguar e faz a tratamento dela com os mesmos valores utilizados para criar o modelo. Na linha 41 é criado a previsão para a imagem analisada e salva na instância \textit{steering\_angle}. O \textit{throttle} recebe o valor de 1 menos o módulo do ângulo de direção para diminuir a velocidade conforme ele gira. As linhas 43 e 45 garantem que o valor de velocidade seja sempre menor que valor máximo.
-
-Ao final da função \textit{telemetry()} os valores de \textit{steering\_angle} e \textit{throttle} são imprimidos na tela e colocados nas variáveis \textit{velocidade.linear.x} e \textit{velocidade.angular.z} para finalmente serem publicados no  \textit{Node} do Jaguar.
+A função \textit{telemetry()} da Figura \ref{figura 8} tem a função de receber as imagens da câmera IP do Jaguar, fazer o a predição para essa imagem e salvar os valores de aceleração e angulação nas variáveis \textit{velocidade.linear.x} e \textit{velocidade.angular.z}, respectivamente. Ao final da função, esse valores são enviados para o \textit{node} que controla a movimentação do Jaguar.
